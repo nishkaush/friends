@@ -1,4 +1,7 @@
-# friends
+# friends 
+
+Web Design for an Indian NGO.
+Made With VueJS, Bootstrap 4 & Firebase
 
 > A Vue.js project
 
