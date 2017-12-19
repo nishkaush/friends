@@ -8,7 +8,7 @@
     <div class="media col-sm-11 mx-auto">
       <img class="d-flex mr-3 img-fluid align-self-center" src="./Home-pics/awards-1.jpg" alt="Generic placeholder image">
       <div class="media-body">
-        <h5 class="mt-0">Helped Children &amp; Families Stay Healthy</h5> Implemented Urban Reproductive &amp; Child Health Program (RCH) under Uttrakhand Health and Family Welfare Society. Funded by National Health Mission (NHM) as an initiative by Government of India, in this project we focussed on the health needs
+        <h5 class="mt-0">Helped Children &amp; Families Stay Healthy</h5> Implemented Urban Reproductive &amp; Child Health Program (RCH) under Uttarakhand Health and Family Welfare Society. Funded by National Health Mission (NHM) as an initiative by Government of India, in this project we focussed on the health needs
         of urban poor slum population and targeted reproductive and child health, children immunisation, family welfare, family planning needs, OPD, basic lab testings and free dispensing of medicines.
       </div>
     </div>
@@ -16,8 +16,8 @@
     <div class="media col-sm-11 mx-auto">
       <img class="d-flex mr-3 img-fluid align-self-center" src="./Home-pics/junkies.jpg" alt="Generic placeholder image">
       <div class="media-body">
-        <h5 class="mt-0">Saved Lives With AIDS Intervention</h5> Implemented targeted intervention programs under the Uttrakkhand state aid control society funded by NACO on the core components like Female Sex Workers (FSW's), Injected Drug Users (IDU's), street children, truckers for more than 10 years. As
-        a result, we signicantly prevented and contained AIDS transmission in the high risk groups in areas of Haridwar city.
+        <h5 class="mt-0">Saved Lives With AIDS Intervention</h5> Implemented targeted intervention programs under the Uttarakhand State AIDS Control Society (USACS) funded by NACO on the core components like Female Sex Workers (FSW's), Injected Drug Users (IDU's), street children, truckers for more than 10
+        years. As a result, we signicantly prevented and contained AIDS transmission in the high risk groups in areas of Haridwar city.
       </div>
     </div>
 

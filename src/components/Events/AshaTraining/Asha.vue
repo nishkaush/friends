@@ -3,10 +3,10 @@
   <div class="card text-center col-sm-12">
 
     <div class="card-body">
-      <h4 class="card-title">ASHA Shamta Vikas Aivam Prashikshan Karyakram</h4>
+      <h4 class="card-title">ASHA Training and Capacity Building</h4>
       <hr>
-      <p class="card-text">Accredited Social Health Activists (ASHA's) are primarily women selected from their respective villages (one per village/locality) who work as an interface between the community and the public health system. ASHA Ability Development &amp; Training
-        Program aims to develop further skills in ASHA's so they can better represent their communities. Friends contributed to the training in Roorkee.</p>
+      <p class="card-text">Accredited Social Health Activists (ASHA's) are primarily women selected from their respective villages (one per village/locality) who work as an interface between the community and the public health system. This program aims to develop further
+        skills in ASHA's so they can better represent their communities. Friends contributed to the training in Roorkee.</p>
       <button @click="visibleGallery" class="btn btn-warning btn-md showGallery">Show Gallery</button>
     </div>
     <transition enter-active-class="animated slideInUp" leave-active-class="animated fadeOutDown" appear>
