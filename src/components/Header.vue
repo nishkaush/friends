@@ -82,7 +82,7 @@ nav {
   /* background: rgba(0, 0, 0, 0.7); */
   background: linear-gradient(
     45deg,
-    rgba(255, 255, 255, 0.9) 15%,
+    rgba(255, 255, 255, 0.8) 15%,
     rgba(0, 0, 0, 0.7) 15%
   );
   box-shadow: 0px 0.8px 5px 1px rgba(0, 0, 0, 0.8);
@@ -108,8 +108,8 @@ nav {
 }
 
 .my-logo {
-  margin-left: 3%;
-  margin-bottom: 1%;
+  margin-left: 1%;
+  margin-bottom: 0.5%;
   width: 10%;
   height: auto;
 }
