@@ -38,11 +38,11 @@
 
 <script>
 export default {
-  // mounted() {
-  //   $(".carousel").carousel({
-  //     interval: 8000
-  //   });
-  // }
+  mounted() {
+    $(".carousel").carousel({
+      interval: 8000
+    });
+  }
 };
 </script>
 
@@ -52,7 +52,7 @@ export default {
 }
 
 .carousel-inner img {
-  opacity: 0.7;
+  opacity: 0.8;
 }
 
 .carousel-item {

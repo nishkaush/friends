@@ -1,6 +1,6 @@
 <template>
 <transition enter-active-class="animated fadeInRight" appear>
-  <div class="container">
+  <div class="container mt-5 pt-3">
     <div class="row">
       <div class="col-sm-12">
         <h1 class="text-center">Our Campaigns &amp; Events</h1>
@@ -23,13 +23,13 @@
 </template>
 
 <script>
-import Cleaniness from './Cleaniness/Cleaniness.vue'
-import IndraDhanush from './IndraDhanush/IndraDhanush.vue'
-import Mas from './Mas/Mas.vue'
-import Wad from './Wad/Wad.vue'
-import Kishore from './KishoreTraining/Kishore.vue'
-import Asha from './AshaTraining/Asha.vue'
-import SpecialCamps from './SpecialCamps/SpecialCamps.vue'
+import Cleaniness from "./Cleaniness/Cleaniness.vue";
+import IndraDhanush from "./IndraDhanush/IndraDhanush.vue";
+import Mas from "./Mas/Mas.vue";
+import Wad from "./Wad/Wad.vue";
+import Kishore from "./KishoreTraining/Kishore.vue";
+import Asha from "./AshaTraining/Asha.vue";
+import SpecialCamps from "./SpecialCamps/SpecialCamps.vue";
 export default {
   components: {
     Cleaniness,
@@ -40,7 +40,7 @@ export default {
     Kishore,
     Asha
   }
-}
+};
 </script>
 
 <style scoped>

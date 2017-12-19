@@ -72,12 +72,14 @@ export default {};
 
 <style scoped>
 nav {
-  background: rgba(0, 0, 0, 0.7);
-  box-shadow: 0px 0.8px 3px 1px rgba(0, 0, 0, 0.8);
+  /* background: rgba(0, 0, 0, 0.7); */
+  background: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.7) 15%,
+    rgba(0, 0, 0, 0.7) 15.5%
+  );
+  box-shadow: 0px 0.8px 5px 1px rgba(0, 0, 0, 0.8);
   position: absolute;
-  /* background: #DCE35B; */
-  /* background: -webkit-linear-gradient(to left, #45B649, #DCE35B); */
-  /* background: linear-gradient(to left, #45B649, #DCE35B); */
   font-family: avenir;
 }
 
@@ -106,16 +108,15 @@ nav {
 }
 
 .nav-item {
-  padding-left: 3%;
-}
-.nav-item svg:hover {
-  color: yellow;
+  padding-left: 4%;
 }
 
 .nav-link {
   color: white;
   font-weight: bold;
   font-size: 1em;
+  letter-spacing: 2px;
+  font-family: palatino;
 }
 
 .nav-link:hover {

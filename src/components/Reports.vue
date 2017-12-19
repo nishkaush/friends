@@ -1,6 +1,6 @@
 <template>
 <transition enter-active-class="animated fadeInRight" appear>
-  <div class="container" enter-active-area="animated fadeIn">
+  <div class="container mt-5 pt-1" enter-active-area="animated fadeIn">
     <div class="row">
       <div class="col-sm-12">
         <h1 class="text-center about-us-heading">Reports</h1>
@@ -19,7 +19,7 @@
 </template>
 
 <script>
-export default {}
+export default {};
 </script>
 
 <style scoped>
@@ -31,7 +31,6 @@ body {
   padding: 2%;
   margin-top: 5%;
 }
-
 
 .text-tile {
   padding-top: 6%;

@@ -11,7 +11,7 @@
     </div>
 
     <div class="col-sm-4">
-      <p class="h5 ">Miscellaneous</p>
+      <p class="h5">Miscellaneous</p>
       <hr>
       <div><a target="_blank" href="http://nhm.gov.in">National Health Mission</a></div>
       <div><a target="_blank" href="https://www.nhp.gov.in/">National Health Portal</a></div>
@@ -34,14 +34,15 @@
 </template>
 
 <script>
-export default {}
+export default {};
 </script>
 
 <style scoped>
 footer {
-  background: #37913a;
+  background: #323232;
   color: white;
-  padding-top: 3%;
+  padding-top: 4%;
+  margin-top: 10%;
   font-family: avenir;
   letter-spacing: 1px;
 }

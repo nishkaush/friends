@@ -1,6 +1,6 @@
 <template>
 <transition enter-active-class="animated fadeInRight" appear>
-  <div class="container projects-div">
+  <div class="container projects-div mt-5 pt-4">
     <div class="row" key="1">
       <div class="col-sm-12">
         <h1 class="text-center">Our Projects</h1>
@@ -17,10 +17,10 @@
 </template>
 
 <script>
-import Hridya from './Hridya/Hridya.vue'
-import Telecounselling from './Telecounselling/Telecounselling.vue'
-import Ti from './Ti/Ti.vue'
-import Uphc from './Uphc/Uphc.vue'
+import Hridya from "./Hridya/Hridya.vue";
+import Telecounselling from "./Telecounselling/Telecounselling.vue";
+import Ti from "./Ti/Ti.vue";
+import Uphc from "./Uphc/Uphc.vue";
 export default {
   components: {
     Hridya,
@@ -28,7 +28,7 @@ export default {
     Ti,
     Uphc
   }
-}
+};
 </script>
 
 <style scoped>
@@ -49,7 +49,7 @@ export default {
     opacity: 0;
   }
   50% {
-    opacity: 0.5
+    opacity: 0.5;
   }
   100% {
     opacity: 1;
@@ -62,5 +62,6 @@ export default {
 
 h1 {
   padding: 5%;
+  padding-bottom: 3%;
 }
 </style>

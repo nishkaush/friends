@@ -1,6 +1,6 @@
 <template>
 <transition enter-active-class="animated fadeInRight" appear>
-  <div class="container">
+  <div class="container mt-5 pt-5">
     <my-map></my-map>
 
     <div class="row location-text" id="our-centers">
@@ -44,20 +44,18 @@
 </template>
 
 <script>
-import GoogleMap from "./GoogleMap.vue"
-import {
-  centersArr
-} from "./Data/Locations.js"
+import GoogleMap from "./GoogleMap.vue";
+import { centersArr } from "./Data/Locations.js";
 export default {
   data() {
     return {
       centersArr
-    }
+    };
   },
   components: {
     "my-map": GoogleMap
   }
-}
+};
 </script>
 
 <style scoped>
@@ -93,7 +91,8 @@ h1 {
   padding: 2%;
 }
 
-.card-body {}
+.card-body {
+}
 
 .card span {
   font-weight: bold;
