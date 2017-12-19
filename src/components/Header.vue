@@ -1,5 +1,5 @@
 <template>
-<nav class="navbar navbar-expand-lg sticky-top">
+<nav class="navbar navbar-expand-md sticky-top">
   <!-- menu items start here -->
   <div class="collapse navbar-collapse" id="navbarToggleExternalContent">
     <router-link tag="img" :to="{ path:'/' }" src="/static/my-logo-v1.png" alt="Friends" class="align-top img-fluid my-logo d-none d-md-block float-md-left float-lg-none"></router-link>
@@ -55,7 +55,7 @@
   <div class="menu-icon-div">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon">
-          <svg fill="#fff" height="40" viewBox="0 0 24 24" width="40" xmlns="http://www.w3.org/2000/svg">
+          <svg fill="#ffc140" height="40" viewBox="0 0 24 24" width="40" xmlns="http://www.w3.org/2000/svg">
               <path d="M3 18h6v-2H3v2zM3 6v2h18V6H3zm0 7h12v-2H3v2z"/>
               <path d="M0 0h24v24H0z" fill="none"/>
           </svg>
@@ -64,6 +64,10 @@
   </div>
 
 </nav>
+
+
+
+
 </template>
 
 <script>
@@ -75,8 +79,8 @@ nav {
   /* background: rgba(0, 0, 0, 0.7); */
   background: linear-gradient(
     45deg,
-    rgba(255, 255, 255, 0.7) 15%,
-    rgba(0, 0, 0, 0.7) 15.5%
+    rgba(255, 255, 255, 0.9) 15%,
+    rgba(0, 0, 0, 0.7) 15%
   );
   box-shadow: 0px 0.8px 5px 1px rgba(0, 0, 0, 0.8);
   position: absolute;

@@ -81,4 +81,7 @@ footer .col-sm-12 {
   text-decoration: underline;
   color: yellow;
 }
+hr {
+  border-color: white;
+}
 </style>
