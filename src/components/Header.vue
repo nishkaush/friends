@@ -1,65 +1,49 @@
 <template>
-<nav class="navbar navbar-expand-md sticky-top">
+<nav class="navbar sticky-top">
+
   <!-- menu items start here -->
   <div class="collapse navbar-collapse" id="navbarToggleExternalContent">
-    <router-link tag="img" :to="{ path:'/' }" src="/static/my-logo-v1.png" alt="Friends" class="align-top img-fluid my-logo d-none d-md-block float-md-left float-lg-none"></router-link>
+    <router-link tag="img" :to="{ path:'/' }" src="/static/my-logo-v1.png" alt="Friends" class="align-top img-fluid my-logo d-none d-md-block float-lg-none"></router-link>
 
-    <ul class="navbar-nav justify-content-center">
-      <li class="nav-item active">
-        <svg @click="iconLink('/')" fill="#fff" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-              <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
-              <path d="M0 0h24v24H0z" fill="none"/>
-          </svg>
-        <router-link :to="{path:'/'}" class="nav-link" active-class="active" exact>Home</router-link>
+    <ul class="navbar-nav justify-content-end">
+      <li class="nav-item active pt-3">
+        <router-link :to="{path:'/'}" class="nav-link" active-class="active" exact>
+        <i class="fa fa-home fa-lg fa-fw" aria-hidden="true"></i>
+        Home</router-link>
       </li>
-      <li class="nav-item">
-        <svg @click="iconLink('/projects')" fill="#fff" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-              <path d="M0 0h24v24H0z" fill="none"/>
-              <path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z"/>
-          </svg>
-        <router-link :to="{path:'/projects'}" class="nav-link" exact active-class="active">Projects</router-link>
+      <li class="nav-item pt-3">
+        <router-link :to="{path:'/projects'}" class="nav-link" exact active-class="active">
+        <i class="fa fa-briefcase fa-fw fa-lg" aria-hidden="true"></i>
+        Projects</router-link>
       </li>
-      <li class="nav-item">
-        <svg @click="iconLink('/about')" fill="#fff" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-              <path d="M0 0h24v24H0z" fill="none"/>
-              <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
-         </svg>
-        <router-link :to="{path:'/about'}" class="nav-link" exact active-class="active">About</router-link>
+      <li class="nav-item pt-3">
+        <router-link :to="{path:'/about'}" class="nav-link" exact active-class="active">
+        <i class="fa fa-users fa-fw fa-lg" aria-hidden="true"></i>
+        About</router-link>
       </li>
-      <li class="nav-item">
-        <svg @click="iconLink('/contact')" fill="#fff" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-              <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-              <path d="M0 0h24v24H0z" fill="none"/>
-          </svg>
-        <router-link :to="{path:'/contact'}" class="nav-link" exact active-class="active">Contact</router-link>
+      <li class="nav-item pt-3">
+        <router-link :to="{path:'/contact'}" class="nav-link" exact active-class="active">
+        <i class="fa fa-envelope fa-fw fa-lg" aria-hidden="true"></i>
+        Contact</router-link>
       </li>
-      <li class="nav-item">
-        <svg @click="iconLink('/reports')" fill="#fff" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-              <path d="M0 0h24v24H0z" fill="none"/>
-              <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
-          </svg>
-        <router-link :to="{path:'/reports'}" class="nav-link" exact active-class="active">Reports</router-link>
+      <li class="nav-item pt-3">
+        <router-link :to="{path:'/reports'}" class="nav-link" exact active-class="active">
+        <i class="fa fa-folder-open fa-fw fa-lg" aria-hidden="true"></i>
+        Reports</router-link>
       </li>
-
-      <li class="nav-item">
-        <svg @click="iconLink('/events')" fill="#fff" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-            <path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/>
-            <path d="M0 0h24v24H0z" fill="none"/>
-        </svg>
-        <router-link :to="{path:'/events'}" class="nav-link" exact active-class="active">Events</router-link>
+      <li class="nav-item pt-3">
+        <router-link :to="{path:'/events'}" class="nav-link" exact active-class="active">
+        <i class="fa fa-calendar fa-fw fa-lg" aria-hidden="true"></i>
+        Events</router-link>
       </li>
     </ul>
   </div>
 
   <!--  icons for smaller screens starts here-->
-  <div class="menu-icon-div">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon">
-          <svg fill="#ffc140" height="40" viewBox="0 0 24 24" width="40" xmlns="http://www.w3.org/2000/svg">
-              <path d="M3 18h6v-2H3v2zM3 6v2h18V6H3zm0 7h12v-2H3v2z"/>
-              <path d="M0 0h24v24H0z" fill="none"/>
-          </svg>
-        </span>
+  <div class="menu-icon-div" @click="addBgColor">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+      <!-- <i class="fa fa-bars fa-2x fa-fw navbar-toggler-icon" aria-hidden="true" d-none d-sm-blo></i> -->
+      <i class="fa fa-bars fa-3x fa-fw navbar-toggler-icon" aria-hidden="true" d-block d-sm-none></i>
       </button>
   </div>
 
@@ -68,10 +52,21 @@
 </template>
 
 <script>
+import $ from "jquery";
 export default {
+  data() {
+    return {
+      addColor: true
+    };
+  },
   methods: {
     iconLink(path) {
       this.$router.push({ path: path });
+    },
+    addBgColor() {
+      console.log("bgcolor is running");
+      $("nav").toggleClass("favBgColor");
+      // document.querySelector("nav").classList.toggle("favBgColor");
     }
   }
 };
@@ -79,19 +74,19 @@ export default {
 
 <style scoped>
 nav {
-  /* background: rgba(0, 0, 0, 0.7); */
-  background: linear-gradient(
-    45deg,
-    rgba(255, 255, 255, 0.8) 15%,
-    rgba(0, 0, 0, 0.7) 15%
-  );
-  box-shadow: 0px 0.8px 5px 1px rgba(0, 0, 0, 0.8);
+  width: 100%;
   position: absolute;
   font-family: avenir;
 }
 
+.favBgColor {
+  background: rgba(0, 0, 0, 0.95);
+}
+
 .navbar-collapse {
+  width: 10%;
   margin: 0;
+  text-align: center;
   padding: 0.5% 0%;
 }
 
@@ -99,36 +94,54 @@ nav {
   color: yellow;
 }
 
-.navbar {
-  padding: 0;
-}
-
 .navbar-nav {
   width: 100%;
 }
 
 .my-logo {
-  margin-left: 1%;
-  margin-bottom: 0.5%;
-  width: 10%;
+  margin: 0 auto;
+  margin-bottom: 2%;
+  width: 15%;
   height: auto;
 }
 
 .nav-item {
-  padding-left: 4%;
+  font-size: 1em;
+  margin-right: 2%;
 }
 
 .nav-link {
   color: white;
   font-weight: bold;
-  font-size: 1em;
+  font-size: 1.2em;
   letter-spacing: 2px;
   font-family: palatino;
+  width: 20%;
+  margin: 0 auto;
+}
+
+.nav-link:after {
+  content: "";
+  display: block;
+  margin: 0 auto;
+  width: 0%;
+  padding-top: 5px;
+  border-bottom: 1px solid transparent;
 }
 
 .nav-link:hover {
   color: yellow;
   cursor: pointer;
+  transition: 0.3s color;
+}
+.nav-link:hover:after {
+  content: "";
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  padding-top: 5px;
+  border-bottom: 1px solid yellow;
+  transition: 0.4s width;
 }
 
 .router-link-exact-active {
@@ -138,6 +151,7 @@ nav {
 
 .navbar-toggler {
   cursor: pointer;
+  margin: 1% auto;
 }
 
 .navbar-toggler:active {
@@ -149,7 +163,8 @@ nav {
 }
 
 .navbar-toggler-icon {
-  padding: 4%;
+  /* color: rgb(255, 204, 53); */
+  color: #ffc107;
 }
 
 nav div {
@@ -157,10 +172,10 @@ nav div {
   margin: 1%;
   padding: 1%;
   font-size: 0.8em;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
   text-transform: uppercase;
   color: white;
-  text-align: center;
+  text-align: right;
 }
 
 nav div:hover {
@@ -169,12 +184,12 @@ nav div:hover {
 }
 
 .navbar {
-  padding: 0;
+  padding: 3%;
 }
 
-/*@media only screen and (max-width: 600px) {
-  .hidden-md-down {
-    display: none;
+@media screen and (max-width: 700px) {
+  .nav-link {
+    width: 100%;
   }
-}*/
+}
 </style>
