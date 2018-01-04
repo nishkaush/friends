@@ -2,38 +2,41 @@
 <div class="container card-deck-div">
   <h1>Latest Events</h1>
   <hr>
-  <div class="card-deck row">
-    <div class="card">
+  <div class="card-deck flex-sm-column flex-lg-row">
+    <div class="card mb-5 mb-lg-0">
       <img class="card-img-top" src="./../Events/Cleaniness/Cleaniness-pics/bright.jpg" alt="Card image cap">
       <div class="card-body">
         <h4 class="card-title">Clean India Mission</h4>
+        <hr class="d-none d-sm-block">
         <p class="card-text d-none d-sm-block">We went above and beyond to fully support the Swachh Bharat Abhiyan introduced by PM Modi.</p>
         <p class="d-none d-sm-block">Organised on 23 Feb 2017.</p>
       </div>
-      <div class="card-footer">
-        <router-link tag="button" :to="{ path:'/events'}" class="btn btn-warning btn-block btn-large" exact>Show More</router-link>
+      <div class="card-footer text-center">
+        <router-link tag="button" :to="{ path:'/events'}" class="btn btn-lg-block btn-warning btn-sm pt-2 pb-2 pl-5 pr-5" exact>Show More</router-link>
       </div>
     </div>
-    <div class="card">
+    <div class="card mb-5 mb-lg-0">
       <img class="card-img-top" src="./Home-pics/mas-main.jpg" alt="Card image cap">
       <div class="card-body">
         <h4 class="card-title">Mahila Aarogya Samiti</h4>
+        <hr class="d-none d-sm-block">
         <p class="card-text d-none d-sm-block"> A group of local women who focus on helping other women in their respective local areas to raise issues faced in the under-privileged sections of the society.</p>
         <p class="d-none d-sm-block">An ongoing campaign.</p>
       </div>
-      <div class="card-footer">
-        <router-link tag="button" :to="{ path:'/events#mas'}" class="btn btn-warning btn-block btn-large" exact>Show More</router-link>
+      <div class="card-footer text-center">
+        <router-link tag="button" :to="{ path:'/events#mas'}" class="btn btn-warning btn-sm pt-2 pb-2 pl-5 pr-5" exact>Show More</router-link>
       </div>
     </div>
-    <div class="card">
+    <div class="card mb-5 mb-lg-0">
       <img class="card-img-top" src="./../Events/Wad/Wad-pics/kids-books.jpg" alt="Card image cap">
       <div class="card-body">
         <h4 class="card-title">World AIDS Day</h4>
+        <hr class="d-none d-sm-block">        
         <p class="card-text d-none d-sm-block">We organised this event to provide books and food to the children living in the slums near Birla Ghat (Haridwar) while spreading awareness about AIDS with the locals.</p>
         <p class="d-none d-sm-block">Carried out on 1 December 2013.</p>
       </div>
-      <div class="card-footer">
-        <router-link tag="button" :to="{path:'/events#wad'}" class="btn btn-warning btn-block" exact>Show More</router-link>
+      <div class="card-footer text-center">
+        <router-link tag="button" :to="{path:'/events#wad'}" class="btn btn-warning btn-sm pt-2 pb-2 pl-5 pr-5" exact>Show More</router-link>
       </div>
     </div>
   </div>
@@ -41,12 +44,12 @@
 </template>
 
 <script>
-export default {}
+export default {};
 </script>
 
 <style scoped>
 .card-deck-div {
-  margin-top: 3%;
+  margin-top: 5%;
 }
 
 .card-deck-div h1 {
@@ -58,7 +61,7 @@ export default {}
 
 .card-title {
   text-align: center;
-  line-height: 2;
+  line-height: 1.5;
 }
 
 .card-body {
@@ -78,31 +81,13 @@ button {
   background: white;
 }
 
-@media only screen and (max-width:575px) {
+@media only screen and (max-width: 575px) {
   .card-deck-div h1 {
     margin-top: 10%;
-  }
-  .card {
-    border: none;
   }
   .card-body {
     padding-bottom: 0%;
     padding-top: 1%;
-  }
-  .card-footer {
-    padding-top: 0%;
-  }
-  button {
-    margin-bottom: 10%;
-  }
-  button:last-child {
-    margin-bottom: 6%;
-  }
-}
-
-@media screen and (min-wdth:577px) and (max-width:767px) {
-  .card .card-footer {
-    padding: 0 !important;
   }
 }
 </style>

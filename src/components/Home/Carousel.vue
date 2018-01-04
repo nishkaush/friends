@@ -7,7 +7,7 @@
     <router-link 
     tag="button" 
     :to="{path:'/about'}" 
-    class="btn-block btn btn-md btn-warning btn-lg pt-3 pb-3" 
+    class="btn-block btn btn-lg btn-warning btn-lg pt-3 pb-3 font-weight-bold" 
     style="cursor:pointer" 
     exact
     >Discover Us</router-link>
@@ -28,7 +28,7 @@
         <router-link 
         tag="button" 
         :to="{path:'/about'}" 
-        class="btn btn-md btn-warning btn-md pl-5 pr-5 pt-3 pb-3" 
+        class="btn btn-md btn-warning btn-md pl-5 pr-5 pt-3 pb-3 mb-2" 
         exact
         >Discover More</router-link>
       </div>
@@ -41,7 +41,7 @@
         <router-link 
         tag="button" 
         :to="{path:'/projects'}" 
-        class="btn btn-md btn-warning btn-md pl-5 pr-5 pt-3 pb-3" 
+        class="btn btn-md btn-warning btn-md pl-5 pr-5 pt-3 pb-3 mb-2" 
         exact
         >Get More details</router-link>
       </div>
@@ -54,7 +54,7 @@
         <router-link 
         tag="button" 
         :to="{path:'/events#specialCamps'}" 
-        class="btn btn-md btn-warning btn-md pl-5 pr-5 pt-3 pb-3" 
+        class="btn btn-md btn-warning btn-md pl-5 pr-5 pt-3 pb-3 mb-2" 
         exact
         >View our gallery</router-link>
       </div>
@@ -78,12 +78,15 @@ export default {
 <style scoped>
 .small-screen-div {
   height: 600px;
-  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 1, 0.4)),
+  background: linear-gradient(rgba(0, 51, 102, 0.5), rgba(0, 51, 103, 0.5)),
     url("./Home-pics/sm-sc.jpg");
+}
+.small-screen-div h1 {
+  font-weight: bold;
 }
 
 .carousel-inner {
-  background: rgb(0, 0, 0);
+  background: rgb(0, 51, 102);
 }
 
 .carousel-inner img {
@@ -131,7 +134,7 @@ li[data-target="#carouselExampleIndicators"] {
 @media screen and (min-width: 577px) and (max-width: 767px) {
   .small-screen-div {
     height: 600px;
-    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 1, 0.4)),
+    background: linear-gradient(rgba(0, 51, 102, 0.5), rgba(0, 51, 103, 0.5)),
       url("./Home-pics/small-screen-2.jpg") center;
   }
 }

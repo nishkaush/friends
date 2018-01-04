@@ -81,6 +81,7 @@ nav {
 
 .favBgColor {
   background: rgba(0, 0, 0, 0.95);
+  /* background: rgba(0, 25, 51, 0.95); */
 }
 
 .navbar-collapse {
