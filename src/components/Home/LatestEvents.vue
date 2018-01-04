@@ -1,10 +1,10 @@
 <template>
-<div class="container card-deck-div">
+<div class="container card-deck-div mt-5 pt-5">
   <h1>Latest Events</h1>
   <hr>
   <div class="card-deck flex-sm-column flex-lg-row">
-    <div class="card mb-5 mb-lg-0">
-      <img class="card-img-top" src="./../Events/Cleaniness/Cleaniness-pics/bright.jpg" alt="Card image cap">
+    <div class="card mb-5 mb-lg-0 col-11 col-sm-9 col-md-10 col-lg-12">
+      <img class="card-img-top" src="./../Events/Cleaniness/Cleaniness-pics/bright.jpg" alt="Our Team supports Clean India Mission">
       <div class="card-body">
         <h4 class="card-title">Clean India Mission</h4>
         <hr class="d-none d-sm-block">
@@ -15,7 +15,7 @@
         <router-link tag="button" :to="{ path:'/events'}" class="btn btn-lg-block btn-warning btn-sm pt-2 pb-2 pl-5 pr-5" exact>Show More</router-link>
       </div>
     </div>
-    <div class="card mb-5 mb-lg-0">
+    <div class="card mb-5 mb-lg-0 col-11 col-sm-9 col-md-10 col-lg-12">
       <img class="card-img-top" src="./Home-pics/mas-main.jpg" alt="Card image cap">
       <div class="card-body">
         <h4 class="card-title">Mahila Aarogya Samiti</h4>
@@ -27,7 +27,7 @@
         <router-link tag="button" :to="{ path:'/events#mas'}" class="btn btn-warning btn-sm pt-2 pb-2 pl-5 pr-5" exact>Show More</router-link>
       </div>
     </div>
-    <div class="card mb-5 mb-lg-0">
+    <div class="card mb-0 mb-lg-0 col-11 col-sm-9 col-md-10 col-lg-12">
       <img class="card-img-top" src="./../Events/Wad/Wad-pics/kids-books.jpg" alt="Card image cap">
       <div class="card-body">
         <h4 class="card-title">World AIDS Day</h4>
@@ -48,17 +48,15 @@ export default {};
 </script>
 
 <style scoped>
-.card-deck-div {
-  margin-top: 5%;
-}
-
 .card-deck-div h1 {
-  padding: 2% 0%;
+  padding: 0%;
   text-align: center;
   font-family: baskerville;
   font-size: 2.5em;
 }
-
+.card {
+  padding: 0;
+}
 .card-title {
   text-align: center;
   line-height: 1.5;
@@ -88,6 +86,12 @@ button {
   .card-body {
     padding-bottom: 0%;
     padding-top: 1%;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .card {
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 </style>

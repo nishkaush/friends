@@ -12,15 +12,17 @@
     </div>
     <transition enter-active-class="animated slideInUp" leave-active-class="animated fadeOutDown" appear>
       <div v-if="showGallery" class="card-footer">
-        <button @click="hideGallery" id="second-btn" class="btn btn-danger btn-lg"><i class="fa fa-window-close" aria-hidden="true"></i></button>
-        <p>Gallery is coming soon!</p>
+        <button @click="hideGallery" id="second-btn" class="btn btn-lg">
+          <i class="fa fa-times fa-2x" aria-hidden="true"></i></button>
+        <h4>No Photos yet, Gallery coming soon!</h4>
         <!-- <div class="row gallery">
           <div class="col-md-4 col-sm-6" v-for="file in fileTitles">
             <a class="lightbox" :href="require(`./Hridya-pics/${file.name}`)">
                         <img class="img-responsive rounded" :src="require(`./Hridya-pics/${file.name}`)" :alt="file.alt">
                       </a>
           </div> -->
-        <button @click="hideGallery" id="second-btn" class="btn btn-danger btn-lg"><i class="fa fa-window-close" aria-hidden="true"></i></button>
+        <!-- <button @click="hideGallery" id="second-btn" class="btn btn-lg">
+          <i class="fa fa-times fa-2x" aria-hidden="true"></i></button> -->
       </div>
     </transition>
 
@@ -30,23 +32,23 @@
 </template>
 
 <script>
-import baguetteBox from 'baguetteBox.js'
+import baguetteBox from "baguetteBox.js";
 // import {
 //   fileTitles
 // } from './Hridya-data.js'
 export default {
   data() {
     return {
-      showGallery: false,
+      showGallery: false
       // fileTitles: fileTitles
-    }
+    };
   },
   methods: {
     visibleGallery() {
       this.showGallery = true;
 
       setTimeout(() => {
-        baguetteBox.run('.gallery');
+        baguetteBox.run(".gallery");
         console.log("baguebox running");
       }, 1500);
     },
@@ -55,7 +57,7 @@ export default {
       window.scrollTo(0, 700);
     }
   }
-}
+};
 </script>
 
 <style scoped>
@@ -100,24 +102,27 @@ export default {
   margin-top: 1%;
 }
 
-
 #first-close-btn {
   margin-bottom: 20px;
   cursor: pointer;
+  background: transparent;
+  color: red;
+  border: none;
 }
-
 
 #second-btn {
   margin: 0 auto;
   cursor: pointer;
+  background: transparent;
+  color: red;
+  border: none;
 }
 
 .baguetteBox-button {
   background-color: transparent !important;
 }
 
-
-@media(max-width: 768px) {
+@media (max-width: 768px) {
   body {
     padding: 0;
   }

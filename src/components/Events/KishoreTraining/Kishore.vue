@@ -11,14 +11,16 @@
     </div>
     <transition enter-active-class="animated slideInUp" leave-active-class="animated fadeOutDown" appear>
       <div v-if="showGallery" class="card-footer">
-        <button @click="hideGallery" id="first-close-btn" class="btn btn-danger btn-lg"><i class="fa fa-window-close" aria-hidden="true"></i></button>
+        <button @click="hideGallery" id="first-close-btn" class="btn btn-lg">
+          <i class="fa fa-times fa-2x" aria-hidden="true"></i></button>
         <div class="row gallery">
           <div class="col-md-4 col-sm-6" v-for="file in fileTitles" :key="file.name">
             <a class="lightbox" :href="require(`./Kishore-pics/${file.name}`)">
                         <img class="img-responsive rounded" :src="require(`./Kishore-pics/${file.name}`)" :alt="file.alt">
                       </a>
           </div>
-          <button @click="hideGallery" id="second-btn" class="btn btn-danger btn-lg"><i class="fa fa-window-close" aria-hidden="true"></i></button>
+          <button @click="hideGallery" id="second-btn" class="btn btn-lg">
+            <i class="fa fa-times fa-2x" aria-hidden="true"></i></button>
         </div>
       </div>
     </transition>
@@ -27,22 +29,20 @@
 </template>
 
 <script>
-import baguetteBox from 'baguetteBox.js'
-import {
-  fileTitles
-} from './Kishore-data.js'
+import baguetteBox from "baguetteBox.js";
+import { fileTitles } from "./Kishore-data.js";
 export default {
   data() {
     return {
       showGallery: false,
       fileTitles: fileTitles
-    }
+    };
   },
   methods: {
     visibleGallery() {
       this.showGallery = true;
       setTimeout(() => {
-        baguetteBox.run('.gallery');
+        baguetteBox.run(".gallery");
         console.log("baguebox running");
       }, 1000);
     },
@@ -51,12 +51,11 @@ export default {
       window.scrollTo(0, 900);
     }
   }
-}
+};
 </script>
 
 <style scoped>
 .card {
-
   background: -webkit-linear-gradient(right, #5484bf, #a9c1df);
   background: -o-linear-gradient(right, #5484bf, #a9c1df);
   background: -moz-linear-gradient(right, #5484bf, #a9c1df);
@@ -96,24 +95,27 @@ export default {
   margin-top: 1%;
 }
 
-
 #first-close-btn {
   margin-bottom: 20px;
   cursor: pointer;
+  background: transparent;
+  color: red;
+  border: none;
 }
-
 
 #second-btn {
   margin: 0 auto;
   cursor: pointer;
+  background: transparent;
+  color: red;
+  border: none;
 }
 
 .baguetteBox-button {
   background-color: transparent !important;
 }
 
-
-@media(max-width: 768px) {
+@media (max-width: 768px) {
   body {
     padding: 0;
   }
