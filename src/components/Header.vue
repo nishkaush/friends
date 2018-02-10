@@ -3,7 +3,7 @@
 
   <!-- menu items start here -->
   <div class="collapse navbar-collapse" id="navbarToggleExternalContent">
-    <router-link tag="img" :to="{ path:'/' }" src="/static/my-logo-v1.png" alt="Friends" class="align-top img-fluid my-logo d-none d-md-block float-lg-none"></router-link>
+    <router-link tag="img" :to="{ path:'/' }" src="/static/my-logo-v1.png" alt="Friends" class="align-top img-fluid my-logo d-none d-md-block float-lg-none my-friends-logo"></router-link>
 
     <ul class="navbar-nav justify-content-end">
       <li class="nav-item active pt-3">
@@ -12,19 +12,19 @@
         Home</router-link>
       </li>
       <li class="nav-item pt-3">
-        <router-link :to="{path:'/projects'}" class="nav-link" exact active-class="active">
-        <i class="fa fa-briefcase fa-fw fa-lg" aria-hidden="true"></i>
-        Projects</router-link>
-      </li>
-      <li class="nav-item pt-3">
         <router-link :to="{path:'/about'}" class="nav-link" exact active-class="active">
         <i class="fa fa-users fa-fw fa-lg" aria-hidden="true"></i>
         About</router-link>
       </li>
       <li class="nav-item pt-3">
-        <router-link :to="{path:'/contact'}" class="nav-link" exact active-class="active">
-        <i class="fa fa-envelope fa-fw fa-lg" aria-hidden="true"></i>
-        Contact</router-link>
+        <router-link :to="{path:'/projects'}" class="nav-link" exact active-class="active">
+        <i class="fa fa-briefcase fa-fw fa-lg" aria-hidden="true"></i>
+        Projects</router-link>
+      </li>
+      <li class="nav-item pt-3">
+        <router-link :to="{path:'/events'}" class="nav-link" exact active-class="active">
+        <i class="fa fa-calendar fa-fw fa-lg" aria-hidden="true"></i>
+        Events</router-link>
       </li>
       <li class="nav-item pt-3">
         <router-link :to="{path:'/reports'}" class="nav-link" exact active-class="active">
@@ -32,9 +32,9 @@
         Reports</router-link>
       </li>
       <li class="nav-item pt-3">
-        <router-link :to="{path:'/events'}" class="nav-link" exact active-class="active">
-        <i class="fa fa-calendar fa-fw fa-lg" aria-hidden="true"></i>
-        Events</router-link>
+        <router-link :to="{path:'/contact'}" class="nav-link" exact active-class="active">
+        <i class="fa fa-envelope fa-fw fa-lg" aria-hidden="true"></i>
+        Contact</router-link>
       </li>
     </ul>
   </div>
@@ -42,7 +42,6 @@
   <!--  icons for smaller screens starts here-->
   <div class="menu-icon-div" @click="addBgColor">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-      <!-- <i class="fa fa-bars fa-2x fa-fw navbar-toggler-icon" aria-hidden="true" d-none d-sm-blo></i> -->
       <i class="fa fa-bars fa-3x fa-fw navbar-toggler-icon" aria-hidden="true" d-block d-sm-none></i>
       </button>
   </div>
@@ -64,7 +63,6 @@ export default {
       this.$router.push({ path: path });
     },
     addBgColor() {
-      console.log("bgcolor is running");
       $("nav").toggleClass("favBgColor");
       // document.querySelector("nav").classList.toggle("favBgColor");
     }
@@ -81,7 +79,6 @@ nav {
 
 .favBgColor {
   background: rgba(0, 0, 0, 0.95);
-  /* background: rgba(0, 25, 51, 0.95); */
 }
 
 .navbar-collapse {

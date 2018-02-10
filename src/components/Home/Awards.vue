@@ -8,7 +8,7 @@
 
     <div class="card first-card col-10 col-md-12 col-lg-6 mt-3 mx-auto">
       <img class="img-fluid rounded" src="./Home-pics/awards-1.jpg" alt="Generic placeholder image">      
-      <div class="card-body">
+      <div class="card-body text-justify">
         <h5 class="mt-3">&nbsp;Helped Children &amp; Families Stay Healthy</h5> 
         <hr class="mb-3">
         <p>
@@ -20,7 +20,7 @@
 
     <div class="card second-card col-10 col-md-12 col-lg-6 mt-3 mx-auto">
       <img class="img-fluid rounded" src="./Home-pics/junkies.jpg" alt="Generic placeholder image">
-      <div class="card-body text-left">
+      <div class="card-body text-justify">
         <h5 class="mt-1">&nbsp;Saved Lives With AIDS Intervention</h5> 
         <hr class="mb-3">
         <p>Implemented targeted intervention programs under the Uttarakhand State AIDS Control Society (USACS) funded by NACO on the core components like Female Sex Workers (FSW's), Injected Drug Users (IDU's), street children, truckers for more than 10
@@ -38,15 +38,6 @@ export default {};
 </script>
 
 <style scoped>
-.col-sm-12 {
-  /* margin-top: 4%; */
-}
-
-/* .col-sm-11 {
-  margin-top: 2%;
-  margin-bottom: 2%;
-} */
-
 h1 {
   font-family: baskerville;
 }
@@ -72,35 +63,6 @@ hr {
 .second-card {
   border-right: none;
 }
-/* .card .img-fluid {
-  margin-left: auto !important;
-  margin-right: auto !important;
-} */
-/* .media {
-  border-radius: 15px;
-  box-shadow: 10px 10px 10px 0.06px #e2e1e1;
-  padding: 3%;
-} */
-
-/* .media:first-child {
-  margin-top: 0%;
-} */
-
-/* .media-body {
-  letter-spacing: 1px;
-  font-size: 0.9em;
-  text-align: justify;
-} */
-/* 
-img {
-  width: 30%;
-  height: auto;
-} */
-
-/* .media:last-child {
-  margin-bottom: 5%;
-} */
-
 @media only screen and (max-width: 800px) {
   h1 {
     margin-top: 3%;

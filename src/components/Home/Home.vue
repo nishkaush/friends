@@ -8,10 +8,10 @@
 </template>
 
 <script>
-import Carousel from "./Carousel.vue"
-import LatestEvents from "./LatestEvents.vue"
-import CurrentCampaign from "./CurrentCampaign.vue"
-import Awards from "./Awards.vue"
+import Carousel from "./Carousel.vue";
+import LatestEvents from "./LatestEvents.vue";
+import CurrentCampaign from "./CurrentCampaign.vue";
+import Awards from "./Awards.vue";
 export default {
   components: {
     "my-carousel": Carousel,
@@ -19,7 +19,7 @@ export default {
     "my-current-campaign": CurrentCampaign,
     "my-awards": Awards
   }
-}
+};
 </script>
 
 <style scoped>

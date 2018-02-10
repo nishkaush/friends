@@ -5,11 +5,11 @@
   <div class="card-deck flex-sm-column flex-lg-row">
     <div class="card mb-5 mb-lg-0 col-11 col-sm-9 col-md-10 col-lg-12">
       <img class="card-img-top" src="./../Events/Cleaniness/Cleaniness-pics/bright.jpg" alt="Our Team supports Clean India Mission">
-      <div class="card-body">
+      <div class="card-body text-justify">
         <h4 class="card-title">Clean India Mission</h4>
         <hr class="d-none d-sm-block">
-        <p class="card-text d-none d-sm-block">We went above and beyond to fully support the Swachh Bharat Abhiyan introduced by PM Modi.</p>
-        <p class="d-none d-sm-block">Organised on 23 Feb 2017.</p>
+        <p class="card-text d-none d-sm-block">We went above and beyond to fully support the Swachh Bharat Abhiyan introduced by Prime Minister Modi.</p>
+        <p class="d-none d-sm-block text-center">Organised on 23 Feb 2017.</p>
       </div>
       <div class="card-footer text-center">
         <router-link tag="button" :to="{ path:'/events'}" class="btn btn-lg-block btn-warning btn-sm pt-2 pb-2 pl-5 pr-5" exact>Show More</router-link>
@@ -17,11 +17,11 @@
     </div>
     <div class="card mb-5 mb-lg-0 col-11 col-sm-9 col-md-10 col-lg-12">
       <img class="card-img-top" src="./Home-pics/mas-main.jpg" alt="Card image cap">
-      <div class="card-body">
+      <div class="card-body text-justify">
         <h4 class="card-title">Mahila Aarogya Samiti</h4>
         <hr class="d-none d-sm-block">
         <p class="card-text d-none d-sm-block"> A group of local women who focus on helping other women in their respective local areas to raise issues faced in the under-privileged sections of the society.</p>
-        <p class="d-none d-sm-block">An ongoing campaign.</p>
+        <p class="d-none d-sm-block text-center">An ongoing campaign.</p>
       </div>
       <div class="card-footer text-center">
         <router-link tag="button" :to="{ path:'/events#mas'}" class="btn btn-warning btn-sm pt-2 pb-2 pl-5 pr-5" exact>Show More</router-link>
@@ -29,11 +29,11 @@
     </div>
     <div class="card mb-0 mb-lg-0 col-11 col-sm-9 col-md-10 col-lg-12">
       <img class="card-img-top" src="./../Events/Wad/Wad-pics/kids-books.jpg" alt="Card image cap">
-      <div class="card-body">
+      <div class="card-body text-justify">
         <h4 class="card-title">World AIDS Day</h4>
         <hr class="d-none d-sm-block">        
         <p class="card-text d-none d-sm-block">We organised this event to provide books and food to the children living in the slums near Birla Ghat (Haridwar) while spreading awareness about AIDS with the locals.</p>
-        <p class="d-none d-sm-block">Carried out on 1 December 2013.</p>
+        <p class="d-none d-sm-block text-center">Carried out on 1 December 2013.</p>
       </div>
       <div class="card-footer text-center">
         <router-link tag="button" :to="{path:'/events#wad'}" class="btn btn-warning btn-sm pt-2 pb-2 pl-5 pr-5" exact>Show More</router-link>
