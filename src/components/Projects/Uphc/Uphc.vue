@@ -3,7 +3,7 @@
   <div class="card text-center col-sm-12">
 
     <div class="card-body">
-      <h4 class="card-title">Urban Primary Health Centers (UPSC's)</h4>
+      <h4 class="card-title">Urban Primary Health Centers (UPHC's)</h4>
       <hr>
       <p class="card-text">Launched under the National Urban Health Mission (NUHM), this project provides healthcare and medical services to the urban slum population. We have been running it since August 2010 in the Roorkee Area.</p>
       <button @click="visibleGallery" class="btn btn-warning btn-md showGallery">Show Gallery</button>

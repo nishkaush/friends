@@ -27,7 +27,7 @@
     </div>
     <div class="col-sm-12">
       <p>&copy; Copyright 2017 | Friends NGO | All Rights Reserved</p>
-      <p>Made By <a href="www.nishant-kaushish.com">Nishant Kaushish</a></p>
+      <p>Made By <a href="http://www.nishant-kaushish.com">Nishant Kaushish</a></p>
     </div>
   </div>
 

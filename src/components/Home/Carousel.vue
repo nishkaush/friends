@@ -36,7 +36,7 @@
     <div class="carousel-item">
       <img class="d-block w-100" src="./Home-pics/change-2.jpg" alt="Children in Slums">
       <div class="carousel-caption" id="second-caption">
-        <h1 class="display-2">UPSC</h1>
+        <h1 class="display-2">UPHC</h1>
         <p class="d-none d-md-block">Managing Urban Primary Health Centers</p>
         <router-link 
         tag="button" 
