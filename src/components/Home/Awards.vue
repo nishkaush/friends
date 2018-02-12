@@ -21,10 +21,10 @@
     <div class="card second-card col-10 col-md-12 col-lg-6 mt-3 mx-auto">
       <img class="img-fluid rounded" src="./Home-pics/junkies.jpg" alt="Generic placeholder image">
       <div class="card-body text-justify">
-        <h5 class="mt-1">&nbsp;Saved Lives With AIDS Intervention</h5> 
+        <h5 class="mt-1">&nbsp;Saved Lives Through AIDS Intervention</h5> 
         <hr class="mb-3">
-        <p>Implemented targeted intervention programs under the Uttarakhand State AIDS Control Society (USACS) funded by NACO on the core components like Female Sex Workers (FSW's), Injected Drug Users (IDU's), street children, truckers for more than 10
-        years. As a result, we signicantly prevented and contained AIDS transmission in the high risk groups in areas of Haridwar city.</p>
+        <p>Implemented targeted intervention programs under the Uttarakhand State AIDS Control Society (USACS) funded by NACO on the core components like Female Sex Workers (FSW's), Injected Drug Users (IDU's), street children, truck drivers for more than 10
+        years. As a result, we prevented and contained AIDS transmission in the high risk groups in areas of Haridwar city.</p>
         
       </div>
     </div>
