@@ -3,9 +3,9 @@
   <div class="card text-center col-sm-12">
 
     <div class="card-body">
-      <h4 class="card-title">Community Action on Harm Reduction Project (CAHR)</h4>
+      <h4 class="card-title">Mission Rubella</h4>
       <hr>
-      <p class="card-text"> Known as 'Hridaya Project', it was aimed at reducing transmission of HIV/AIDS among Injecting Drug Users (IDU's) as well as raising their concerns with the local bodies. It was implemented under FCRA funding from 2012 - 2016.
+      <p class="card-text"> This project is our latest one and is aimed at providing vaccination to children in the local areas as per government guidelines. We have focussed primarily on kids in the nearby schools. The project has been a success and many parents are happy with our services.
       </p>
       <button @click="visibleGallery" class="btn btn-warning showGallery">Show Gallery</button>
     </div>
@@ -16,8 +16,8 @@
         </button>
         <div class="row gallery">
           <div class="col-md-4 col-sm-6" v-for="file in fileTitles" :key="file.name">
-            <a class="lightbox" :href="require(`./Hridya-pics/${file.name}`)">
-              <img class="img-responsive rounded" :src="require(`./Hridya-pics/${file.name}`)" :alt="file.alt">
+            <a class="lightbox" :href="require(`./Rubella-pics/${file.name}`)">
+              <img class="img-responsive rounded" :src="require(`./Rubella-pics/${file.name}`)" :alt="file.alt">
             </a>
           </div>
           <button @click="hideGallery" id="second-btn" class="btn btn-lg">
@@ -31,7 +31,7 @@
 
 <script>
 import baguetteBox from "baguetteBox.js";
-import { fileTitles } from "./Hridya-data.js";
+import { fileTitles } from "./Rubella-data.js";
 export default {
   data() {
     return {
@@ -50,7 +50,7 @@ export default {
     },
     hideGallery() {
       this.showGallery = false;
-      window.scrollTo(0, 500);
+      window.scrollTo(0, 200);
     }
   }
 };
@@ -58,7 +58,7 @@ export default {
 
 <style scoped>
 .card {
-  border: 5px solid #f20b26;
+  border: 5px solid #00e5c1;
   border-radius: 10px 50px;
 }
 

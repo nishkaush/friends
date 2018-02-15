@@ -7,6 +7,7 @@
       </div>
       <hr>
     </div>
+    <Rubella></Rubella>
     <Uphc></Uphc>
     <Hridya></Hridya>
     <Ti></Ti>
@@ -21,12 +22,14 @@ import Hridya from "./Hridya/Hridya.vue";
 import Telecounselling from "./Telecounselling/Telecounselling.vue";
 import Ti from "./Ti/Ti.vue";
 import Uphc from "./Uphc/Uphc.vue";
+import Rubella from "./Mission-Rubella/Rubella.vue";
 export default {
   components: {
     Hridya,
     Telecounselling,
     Ti,
-    Uphc
+    Uphc,
+    Rubella
   }
 };
 </script>

@@ -6,35 +6,40 @@
     <router-link tag="img" :to="{ path:'/' }" src="/static/my-logo-v1.png" alt="Friends" class="align-top img-fluid my-logo d-none d-md-block float-lg-none my-friends-logo"></router-link>
 
     <ul class="navbar-nav justify-content-end">
-      <li class="nav-item active pt-3">
+      <li class="nav-item active pt-2">
         <router-link :to="{path:'/'}" class="nav-link" active-class="active" exact>
         <i class="fa fa-home fa-lg fa-fw" aria-hidden="true"></i>
         Home</router-link>
       </li>
-      <li class="nav-item pt-3">
+      <li class="nav-item pt-2">
         <router-link :to="{path:'/about'}" class="nav-link" exact active-class="active">
         <i class="fa fa-users fa-fw fa-lg" aria-hidden="true"></i>
         About</router-link>
       </li>
-      <li class="nav-item pt-3">
+      <li class="nav-item pt-2">
         <router-link :to="{path:'/projects'}" class="nav-link" exact active-class="active">
         <i class="fa fa-briefcase fa-fw fa-lg" aria-hidden="true"></i>
         Projects</router-link>
       </li>
-      <li class="nav-item pt-3">
+      <li class="nav-item pt-2">
         <router-link :to="{path:'/events'}" class="nav-link" exact active-class="active">
         <i class="fa fa-calendar fa-fw fa-lg" aria-hidden="true"></i>
         Events</router-link>
       </li>
-      <li class="nav-item pt-3">
+      <li class="nav-item pt-2">
         <router-link :to="{path:'/reports'}" class="nav-link" exact active-class="active">
         <i class="fa fa-folder-open fa-fw fa-lg" aria-hidden="true"></i>
         Reports</router-link>
       </li>
-      <li class="nav-item pt-3">
+      <li class="nav-item pt-2">
         <router-link :to="{path:'/contact'}" class="nav-link" exact active-class="active">
         <i class="fa fa-envelope fa-fw fa-lg" aria-hidden="true"></i>
         Contact</router-link>
+      </li>
+      <li class="nav-item pt-2">
+        <router-link :to="{path:'/videos'}" class="nav-link" exact active-class="active">
+        <i class="fa fa-video-camera fa-fw fa-lg" aria-hidden="true"></i>
+        Videos</router-link>
       </li>
     </ul>
   </div>
