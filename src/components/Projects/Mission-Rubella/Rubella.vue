@@ -3,9 +3,9 @@
   <div class="card text-center col-sm-12">
 
     <div class="card-body">
-      <h4 class="card-title">Mission Rubella</h4>
+      <h4 class="card-title">Measles Rubella</h4>
       <hr>
-      <p class="card-text"> This project is our latest one and is aimed at providing vaccination to children in the local areas as per government guidelines. We have focussed primarily on kids in the nearby schools. The project has been a success and many parents are happy with our services.
+      <p class="card-text"> Every year in India nearly 2.8 million children get measles or rubella. The Measles Rubella (MR) program is an initiative by the Government of India which aims at vaccinating children aged 9 months to 15 years against these diseases. We have implemented this program in Roorkee area.
       </p>
       <button @click="visibleGallery" class="btn btn-warning showGallery">Show Gallery</button>
     </div>

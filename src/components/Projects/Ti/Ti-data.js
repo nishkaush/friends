@@ -1,47 +1,37 @@
-export const fileTitles = [{
-    name: '1.jpg',
-    alt: 'Police colleagues'
-  }, {
+export const fileTitles = [
+  {
+    name: "1.jpg",
+    alt: "Police colleagues"
+  },
+  {
     name: "3.jpg",
-    alt: 'police academy'
+    alt: "police academy"
   },
 
   {
-    name: '12.jpg',
-    alt: 'police'
+    name: "12.jpg",
+    alt: "police"
   },
   {
-    name: '13.jpg',
-    alt: 'Office'
+    name: "13.jpg",
+    alt: "Office"
   },
 
   {
-    name: '16.jpg',
-    alt: 'spreading awareness'
+    name: "16.jpg",
+    alt: "spreading awareness"
   },
   {
-    name: '18.jpg',
-    alt: 'Police'
+    name: "18.jpg",
+    alt: "Police"
   },
   {
-    name: 'Ti-1.jpg',
-    alt: 'Police'
+    name: "Ti-1.jpg",
+    alt: "Police"
   },
   {
-    name: 'Ti-2.jpg',
-    alt: 'Police'
-  },
-  {
-    name: "Ti-3.jpg",
-    alt: 'Police'
-  },
-  {
-    name: 'Ti-4.jpg',
-    alt: 'AIDS'
-  },
-  {
-    name: 'Ti-5.jpg',
-    alt: 'talking about AIDS'
+    name: "Ti-5.jpg",
+    alt: "talking about AIDS"
   },
   {
     name: "Ti-6.jpg",
@@ -60,24 +50,12 @@ export const fileTitles = [{
     alt: "AIDS play"
   },
   {
-    name: "Ti-10.jpg",
-    alt: "play about AIDS"
-  },
-  {
-    name: "Ti-11.jpg",
-    alt: "actor performing"
-  },
-  {
     name: "Ti-12.jpg",
     alt: "Our staff"
   },
   {
     name: "Ti-16.jpg",
     alt: "AIDS program"
-  },
-  {
-    name: "Ti-17.jpg",
-    alt: "stage for AIDS program"
   },
   {
     name: "Ti-19.jpg",
