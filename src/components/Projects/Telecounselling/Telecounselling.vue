@@ -10,21 +10,13 @@
       </p>
       <button @click="visibleGallery" class="btn btn-warning showGallery">Show Gallery</button>
     </div>
-    <transition enter-active-class="animated slideInUp" leave-active-class="animated fadeOutDown" appear>
+    <!-- <transition enter-active-class="animated slideInUp" leave-active-class="animated fadeOutDown" appear> -->
       <div v-if="showGallery" class="card-footer">
         <button @click="hideGallery" id="second-btn" class="btn btn-lg">
           <i class="fa fa-times fa-2x" aria-hidden="true"></i></button>
         <h4>No Photos yet, Gallery coming soon!</h4>
-        <!-- <div class="row gallery">
-          <div class="col-md-4 col-sm-6" v-for="file in fileTitles">
-            <a class="lightbox" :href="require(`./Hridya-pics/${file.name}`)">
-                        <img class="img-responsive rounded" :src="require(`./Hridya-pics/${file.name}`)" :alt="file.alt">
-                      </a>
-          </div> -->
-        <!-- <button @click="hideGallery" id="second-btn" class="btn btn-lg">
-          <i class="fa fa-times fa-2x" aria-hidden="true"></i></button> -->
       </div>
-    </transition>
+    <!-- </transition> -->
 
   </div>
 </div>

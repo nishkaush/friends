@@ -1,7 +1,7 @@
 <template>
 <div class="container card-deck-div mt-5 pt-5">
-  <h1>Latest Events</h1>
-  <hr>
+  <h1 class="pb-3">Latest Events</h1>
+  <!-- <hr> -->
   <div class="card-deck flex-sm-column flex-lg-row">
     <div class="card mb-5 mb-lg-0 col-11 col-sm-9 col-md-10 col-lg-12">
       <img class="card-img-top" src="./../Events/Cleaniness/Cleaniness-pics/bright.jpg" alt="Our Team supports Clean India Mission">

@@ -8,7 +8,7 @@
       <p class="card-text">This program aims to give 90% immunization coverage in India by 2020 so as to significantly reduce child mortality rate. We provide all necessary vaccines such as BCG (for tuberclosis), Pentavalent, Measles and Rubella.</p>
       <button @click="visibleGallery" class="btn btn-warning btn-md showGallery">Show Gallery</button>
     </div>
-    <transition enter-active-class="animated slideInUp" leave-active-class="animated fadeOutDown" appear>
+    <!-- <transition enter-active-class="animated slideInUp" leave-active-class="animated fadeOutDown" appear> -->
       <div v-if="showGallery" class="card-footer">
         <button @click="hideGallery" id="first-close-btn" class="btn btn-lg">
           <i class="fa fa-times fa-2x" aria-hidden="true"></i></button>
@@ -22,7 +22,7 @@
             <i class="fa fa-times fa-2x" aria-hidden="true"></i></button>
         </div>
       </div>
-    </transition>
+    <!-- </transition> -->
   </div>
 </div>
 </template>

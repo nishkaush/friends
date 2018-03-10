@@ -10,7 +10,7 @@
       </p>
       <button @click="visibleGallery" class="btn btn-warning btn-md showGallery">Show Gallery</button>
     </div>
-    <transition enter-active-class="animated slideInUp" leave-active-class="animated fadeOutDown" appear>
+    <!-- <transition enter-active-class="animated slideInUp" leave-active-class="animated fadeOutDown" appear> -->
       <div v-if="showGallery" class="card-footer">
         <button @click="hideGallery" id="first-close-btn" class="btn btn-lg">
           <i class="fa fa-times fa-2x" aria-hidden="true"></i></button>
@@ -24,7 +24,7 @@
             <i class="fa fa-times fa-2x" aria-hidden="true"></i></button>
         </div>
       </div>
-    </transition>
+    <!-- </transition> -->
   </div>
 </div>
 </template>

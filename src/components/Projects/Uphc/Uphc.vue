@@ -8,7 +8,7 @@
       <p class="card-text">Launched under the National Urban Health Mission (NUHM), this project provides healthcare and medical services to the urban slum population. We have been running it since August 2010 in the Roorkee Area.</p>
       <button @click="visibleGallery" class="btn btn-warning btn-md showGallery">Show Gallery</button>
     </div>
-    <transition enter-active-class="animated slideInUp" leave-active-class="animated fadeOutDown" appear>
+    <!-- <transition enter-active-class="animated slideInUp" leave-active-class="animated fadeOutDown" appear> -->
       <div v-if="showGallery" class="card-footer">
         <button @click="hideGallery" id="first-close-btn" class="">
           <i class="fa fa-times fa-2x" aria-hidden="true"></i>
@@ -24,7 +24,7 @@
           </button>
         </div>
       </div>
-    </transition>
+    <!-- </transition> -->
   </div>
 </div>
 </template>

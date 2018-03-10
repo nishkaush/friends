@@ -25,7 +25,7 @@
       <router-link class="locations-quicklink" tag="div" :to="{ path: '/reports'}">Annual Reports</router-link>
 
     </div>
-    <div class="col-sm-12">
+    <div class="col-sm-12 pb-4">
       <p>&copy; Copyright 2017 | Friends NGO | All Rights Reserved</p>
       <p>Made By <a href="http://www.nishant-kaushish.com">Nishant Kaushish</a></p>
     </div>
@@ -69,7 +69,7 @@ footer .col-sm-12 {
   text-align: center;
   padding: 1%;
   font-size: 0.7em;
-  letter-spacing: 2px;
+  letter-spacing: normal;
 }
 
 .locations-quicklink {
@@ -85,5 +85,12 @@ footer .col-sm-12 {
 hr {
   width: 70%;
   border-color: white;
+}
+
+@media only screen and (max-width: 600px) {
+  .row {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
 }
 </style>
