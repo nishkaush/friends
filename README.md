@@ -1,13 +1,13 @@
-# friends 
+# friends
 
 Web Design for an Indian NGO.
-Made With VueJS, Bootstrap 4 & Firebase
+Made With VueJS, Bootstrap 4 & running on AWS
 
 > A Vue.js project
 
 ## Build Setup
 
-``` bash
+```bash
 # install dependencies
 npm install
 
