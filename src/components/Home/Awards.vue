@@ -6,9 +6,9 @@
       <!-- <hr> -->
     </div>
 
-    <div class="card first-card col-10 col-md-12 col-lg-6 mt-3 mx-auto">
+    <div class="card first-card col-12 col-md-12 col-lg-6 mt-3 mx-auto">
       <img class="img-fluid" src="./Home-pics/awards-1.jpg" alt="beautiful girl">      
-      <div class="card-body text-justify px-5">
+      <div class="card-body text-justify px-4 px-sm-5 px-md-5">
         <h5 class="mt-2 text-center">&nbsp;Healthy Children &amp; Families</h5> 
         <hr class="mb-3">
         <p>
@@ -17,9 +17,9 @@
       </div>
     </div>
 
-    <div class="card second-card col-10 col-md-12 col-lg-6 mt-3 mx-auto">
+    <div class="card second-card col-12 col-md-12 col-lg-6 mt-3 mx-auto">
       <img class="img-fluid" src="./Home-pics/junkies.jpg" alt="Drug affected children">
-      <div class="card-body text-justify px-5">
+      <div class="card-body text-justify px-4 px-sm-5 px-md-5">
         <h5 class="mt-1 text-center">&nbsp;AIDS Prevention &amp; Control</h5> 
         <hr class="mb-3">
         <p>Implemented targeted intervention programs under the Uttarakhand State AIDS Control Society (USACS) funded by NACO on the core components like Female Sex Workers (FSW's), Injected Drug Users (IDU's), street children, truck drivers for more than 10

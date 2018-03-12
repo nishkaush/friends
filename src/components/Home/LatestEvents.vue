@@ -12,7 +12,7 @@
         <p class="d-none d-sm-block text-center">Organised on 23 Feb 2017.</p>
       </div>
       <div class="card-footer text-center">
-        <router-link tag="button" :to="{ path:'/events'}" class="btn btn-lg-block btn-warning btn-sm pt-2 pb-2 pl-5 pr-5" exact>Show More</router-link>
+        <router-link tag="button" :to="{ path:'/events'}" class="btn btn-warning btn-sm py-3 px-5" exact>Show More</router-link>
       </div>
     </div>
     <div class="card mb-5 mb-lg-0 col-11 col-sm-9 col-md-10 col-lg-12">
@@ -24,7 +24,7 @@
         <p class="d-none d-sm-block text-center">An ongoing campaign.</p>
       </div>
       <div class="card-footer text-center">
-        <router-link tag="button" :to="{ path:'/events#mas'}" class="btn btn-warning btn-sm pt-2 pb-2 pl-5 pr-5" exact>Show More</router-link>
+        <router-link tag="button" :to="{ path:'/events#mas'}" class="btn btn-warning btn-sm py-3 px-5" exact>Show More</router-link>
       </div>
     </div>
     <div class="card mb-0 mb-lg-0 col-11 col-sm-9 col-md-10 col-lg-12">
@@ -36,7 +36,7 @@
         <p class="d-none d-sm-block text-center">Carried out on 1 December 2013.</p>
       </div>
       <div class="card-footer text-center">
-        <router-link tag="button" :to="{path:'/events#wad'}" class="btn btn-warning btn-sm pt-2 pb-2 pl-5 pr-5" exact>Show More</router-link>
+        <router-link tag="button" :to="{path:'/events#wad'}" class="btn btn-warning btn-sm py-3 px-5" exact>Show More</router-link>
       </div>
     </div>
   </div>
@@ -71,7 +71,7 @@ button {
   cursor: pointer;
   text-transform: uppercase;
   letter-spacing: 1px;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .card-footer {

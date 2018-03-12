@@ -23,7 +23,7 @@
 
   <!-- following image div only shows on large screens -->
   <div class="row no-gutters d-none d-xl-block">
-    <div class="col-xl-12">
+    <div class="col-xl-11 mx-auto">
       <img class="img-fluid" src="./Home-pics/mi-cover.jpg" alt="Indra Dhanush">
     </div>
   </div>
@@ -42,7 +42,7 @@
       </p>
       <div class="text-center mt-4">
         <router-link tag="button" :to="{path:'/events#cc'}" 
-        class="btn btn-sm btn-warning px-5 py-3 mb-xl-0">See Our Gallery</router-link>
+        class="btn btn-sm btn-warning px-4 py-3 mb-xl-0">See Our Gallery</router-link>
       </div>
 
     </div>
