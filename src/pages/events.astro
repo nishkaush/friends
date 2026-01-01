@@ -1,0 +1,300 @@
+---
+import BaseLayout from '../layouts/Base.astro';
+import { events, SITE_TITLE } from '../consts';
+
+const allEventImages = import.meta.glob(
+  `../assets/*/*.{jpg,png}`,
+  { eager: true }
+)
+---
+
+<BaseLayout title={ 'Events - ' + SITE_TITLE }>
+
+<section class="py-24 px-4 my-20">
+  <div class="max-w-7xl mx-auto">
+    <div class="max-w-7xl mx-auto pb-20 text-center">
+      <h1 class="text-5xl md:text-5xl font-bold text-center text-gray-900 mb-2 tracking-tight">
+        Events Gallery
+      </h1>
+      <div class="w-24 h-1 bg-gradient-to-r from-red-500 to-yellow-500 mx-auto rounded-full"></div>
+      <p class="text-gray-400 text-lg max-w-2xl mx-auto mt-6">
+        Events we have conducted and initiatives we have been part of
+      </p>
+    </div>
+    <div class="space-y-6">
+      {events.map((event) => (
+        <div id={'e-' + event.id} class="group cursor-pointer bg-white rounded-3xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden" data-event-id={event.id}>
+          <div class="flex flex-col md:flex-row">
+            <div class="md:w-2/5 relative overflow-hidden aspect-[16/10] md:aspect-auto">
+              <img
+                src={
+                  event.folderName
+                    ? allEventImages[`../assets/${event.folderName}/${event.thumbnail}`].default.src
+                    : event.thumbnail
+                }
+                alt={event.title}
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full">
+                <span class="text-orange-600 font-semibold text-sm">
+                  {event.images.length} photos
+                </span>
+              </div>
+            </div>
+            
+            <div class="md:w-3/5 p-8 flex flex-col justify-center">
+              <h3 class="text-2xl font-bold text-gray-900 mb-3 group-hover:text-orange-600 transition-colors">
+                {event.title}
+              </h3>
+              <p class="text-gray-600 text-lg mb-4">{event.description}</p>
+              <div class="flex items-center text-orange-600 font-medium group-hover:translate-x-2 transition-transform">
+                <span>View Gallery</span>
+                <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <!-- Gallery Modal -->
+  <div id="gallery-modal" class="fixed inset-0 bg-white z-50 hidden overflow-y-auto">
+    <div class="min-h-screen">
+      <div class="sticky top-0 z-10 shadow-lg bg-white">
+        <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
+          <div>
+            <h3 id="modal-title" class="text-2xl font-bold"></h3>
+            <p id="modal-count" class="text-sm mt-1"></p>
+          </div>
+          <button id="close-modal" class="hover:text-orange-700 transition-colors p-2">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Gallery Grid -->
+      <div class="max-w-7xl mx-auto px-6 py-8">
+        <div id="gallery-grid" class="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Carousel Modal -->
+  <div id="carousel-modal" class="fixed inset-0 bg-black/95 z-[60] hidden items-center justify-center">
+    <button id="close-carousel" class="absolute top-6 right-6 text-white hover:text-pink-400 transition-colors z-10">
+      <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+      </svg>
+    </button>
+
+    <button id="prev-btn" class="absolute left-6 text-white hover:text-pink-400 transition-colors z-10 p-3 rounded-full bg-white/10 hover:bg-white/20">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+      </svg>
+    </button>
+
+    <button id="next-btn" class="absolute right-6 text-white hover:text-pink-400 transition-colors z-10 p-3 rounded-full bg-white/10 hover:bg-white/20">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+      </svg>
+    </button>
+
+    <div class="relative max-w-6xl w-full mx-auto px-20">
+      <img id="carousel-image" src="" alt="" class="w-full h-auto rounded-2xl shadow-2xl"/>
+      <div class="text-center mt-6">
+        <p id="carousel-counter" class="text-gray-300 text-lg"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script define:vars={{ events, allEventImages }}>
+
+  let currentEvent = null;
+  let currentIndex = 0;
+
+  const galleryModal = document.getElementById('gallery-modal');
+  const carouselModal = document.getElementById('carousel-modal');
+  const modalTitle = document.getElementById('modal-title');
+  const modalCount = document.getElementById('modal-count');
+  const galleryGrid = document.getElementById('gallery-grid');
+  const carouselImage = document.getElementById('carousel-image');
+  const carouselCounter = document.getElementById('carousel-counter');
+
+  if (window.location.hash) {
+    setTimeout(() => {
+      const element = document.querySelector(window.location.hash);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }, 100);
+  }
+
+  // Open gallery view
+  document.querySelectorAll('[data-event-id]').forEach(card => {
+    card.addEventListener('click', () => {
+      const eventId = parseInt(card.dataset.eventId);
+      openGallery(eventId);
+    });
+  });
+
+
+function openGallery(eventId) {
+  currentEvent = events.find(p => p.id === eventId);
+  modalTitle.textContent = currentEvent.title;
+  modalCount.textContent = `${currentEvent.images.length} photos`;
+  
+  galleryGrid.innerHTML = '';
+  currentEvent.images.forEach((img, idx) => {
+    const div = document.createElement('div');
+    div.className = 'gallery-thumb group cursor-pointer relative overflow-hidden rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 break-inside-avoid mb-6';
+    div.style.animationDelay = `${idx * 50}ms`;
+    div.innerHTML = `
+      <img src="${allEventImages[`../assets/${currentEvent.folderName}/${img.name}`].default.src}" alt="${img.alt}" class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"/>
+      <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4">
+        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/>
+        </svg>
+      </div>
+    `;
+    div.addEventListener('click', () => openCarousel(idx));
+    galleryGrid.appendChild(div);
+  });
+  if(!currentEvent.images.length) {
+    const div = document.createElement('div');
+    div.innerHTML = `<p class="text-gray-600 text-lg">Gallery coming soon!</p>`;
+    galleryGrid.appendChild(div);
+  }
+  
+  galleryModal.classList.remove('hidden');
+  document.body.style.overflow = 'hidden';
+  
+  // Trigger stagger animation
+  setTimeout(() => {
+    document.querySelectorAll('.gallery-thumb').forEach(thumb => {
+      thumb.classList.add('fade-in');
+    });
+  }, 10);
+}
+
+  function closeGallery() {
+    galleryModal.classList.add('hidden');
+    document.body.style.overflow = 'auto';
+  }
+
+  function openCarousel(imageIndex) {
+    currentIndex = imageIndex;
+    updateCarousel();
+    carouselModal.classList.remove('hidden');
+    carouselModal.classList.add('flex');
+  }
+
+  function closeCarousel() {
+    carouselModal.classList.add('hidden');
+    carouselModal.classList.remove('flex');
+  }
+
+  function updateCarousel() {
+    if (!currentEvent) return;
+    carouselImage.src = allEventImages[
+        `../assets/${currentEvent.folderName}/${currentEvent.images[currentIndex]['name']}`
+      ].default.src;
+    carouselCounter.textContent = `${currentIndex + 1} / ${currentEvent.images.length}`;
+  }
+
+  function nextImage() {
+    if (!currentEvent) return;
+    currentIndex = (currentIndex + 1) % currentEvent.images.length;
+    updateCarousel();
+  }
+
+  function prevImage() {
+    if (!currentEvent) return;
+    currentIndex = (currentIndex - 1 + currentEvent.images.length) % currentEvent.images.length;
+    updateCarousel();
+  }
+
+  document.getElementById('close-modal')?.addEventListener('click', closeGallery);
+  document.getElementById('close-carousel')?.addEventListener('click', closeCarousel);
+  document.getElementById('prev-btn')?.addEventListener('click', prevImage);
+  document.getElementById('next-btn')?.addEventListener('click', nextImage);
+
+  carouselModal?.addEventListener('click', (e) => {
+    if (e.target === carouselModal) closeCarousel();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (carouselModal.classList.contains('flex')) {
+      if (e.key === 'Escape') closeCarousel();
+      if (e.key === 'ArrowLeft') prevImage();
+      if (e.key === 'ArrowRight') nextImage();
+    } else if (!galleryModal.classList.contains('hidden')) {
+      if (e.key === 'Escape') closeGallery();
+    }
+  });
+</script>
+
+  <style>
+    body.modal-open {
+      overflow: hidden;
+    }
+
+    #e-1, #e-2, #e-3, #e-4, #e-5, #e-6, #e-7, #e-8 {
+      scroll-margin-top: 200px !important;
+    }
+
+    #gallery-modal {
+      animation: fadeIn 0.3s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    .gallery-thumb {
+      opacity: 0;
+    }
+
+    .gallery-thumb.fade-in {
+      animation: slideUp 0.5s ease-out forwards;
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    #gallery-modal .max-w-7xl {
+      animation: slideDown 0.4s ease-out;
+    }
+
+    @keyframes slideDown {
+      from {
+        transform: translateY(-20px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+  </style>
+
+</BaseLayout>

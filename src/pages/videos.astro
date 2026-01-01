@@ -1,0 +1,92 @@
+---
+// Example video data - replace with your actual videos
+
+import BaseLayout from '../layouts/Base.astro';
+import {SITE_TITLE} from '../consts';
+const videos = [
+  {
+    id: "1wppPiCZx3Q",
+    title: "Mission Rubella - Part 1",
+    description: "A rally organised in Roorkee by Friends NGO to spread awareness about the ongoing health program - Mission Rubella."
+  },
+  {
+    id: "bN63jzY6fMI",
+    title: "Vaccinating School Children",
+    description: "A short video showing the vaccination of local school children in Roorkee as conducted by Friends NGO."
+  },
+  {
+    id: "3w9RCzPVUm8",
+    title: "Speaking With Vaccinated Children",
+    description: "Speaking with children after their vaccination for Measles Rubella. Trying to find out their experiences and thoughts."
+  },
+  {
+    id: "syFXUq1nKr8",
+    title: "Having Fun With Kids",
+    description: "Playing around with kids after their vaccination for Measles Rubella. They are all holding their confirmation cards to indicate that they have been vaccinated!"
+  },
+  {
+    id: "tCmMm7KPkg8",
+    title: "Vaccinated Kids Sharing Experience",
+    description: "Speaking with young school kids after their vaccination for Measles Rubella."
+  },
+  {
+    id: "7ETaoWZaACA",
+    title: "Vaccinated Girls Interview",
+    description: "Speaking with a group of young girls after their vaccination for Measles Rubella in Roorkee."
+  },
+    {
+    id: "LRrfJOJ-C5s",
+    title: "In Class Messages From School Kids",
+    description: "School Children sharing their experiences and sending messages for everybody to get involved."
+  }
+];
+---
+
+<BaseLayout title={ 'Videos - ' + SITE_TITLE }>
+
+  <section class="mt-24 mb-24 py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="max-w-7xl mx-auto pb-20 text-center">
+        <h1 class="text-5xl md:text-5xl font-bold text-center text-gray-900 mb-2 tracking-tight">
+          Videos Collection
+        </h1>
+        <div class="w-24 h-1 bg-gradient-to-r from-red-500 to-yellow-500 mx-auto rounded-full"></div>
+        <p class="text-gray-400 text-lg max-w-2xl mx-auto mt-6">
+          Explore our curated collection of videos showcasing some of our work
+        </p>
+      </div>
+
+      <!-- Videos Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {videos.map((video) => (
+          <div class="group rounded-2xl overflow-hidden bg-white backdrop-blur border border-white/10 hover:border-white/20 transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105">
+            <!-- Video -->
+            <div class="aspect-video bg-black">
+              <iframe
+                class="w-full h-full"
+                src={`https://www.youtube.com/embed/${video.id}`}
+                title={video.title}
+                loading="lazy"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+              ></iframe>
+            </div>
+
+            <!-- Content -->
+            <div class="p-6">
+              <h2 class="text-lg font-semibold text-gray-800 mb-2 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-red-500 group-hover:to-yellow-500 group-hover:bg-clip-text transition">
+                {video.title}
+              </h2>
+              <p class="text-gray-500 text-sm leading-relaxed line-clamp-3">
+                {video.description}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

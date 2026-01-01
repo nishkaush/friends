@@ -1,0 +1,224 @@
+---
+import { Image } from 'astro:assets';
+import BaseLayout from '../layouts/Base.astro';
+import Carousel from '../components/Carousel.astro';
+import KidsBooksImg from '../assets/aids-day/kids-books.jpg';
+import CleaninessBrightImg from '../assets/clean-india/bright.jpg';
+
+const homepageImages = import.meta.glob('../assets/homepage/*.{jpg,png}', {
+  eager: true,
+  import: 'default',
+});
+
+
+const slides = [
+  {
+    image: homepageImages['../assets/homepage/carousel-1.jpg'],
+    title: 'FRIENDS NGO',
+    subtitle: 'Making A Better Society',
+    buttonText: 'Discover More',
+    buttonLink: '/about'
+  },
+  {
+    image: homepageImages['../assets/homepage/carousel-2.jpg'],
+    title: 'UPHC',
+    subtitle: 'Managing Urban Primary Health Centers',
+    buttonText: 'Get More Details',
+    buttonLink: '/projects'
+  },
+  {
+    image: homepageImages['../assets/homepage/carousel-3.jpg'],
+    title: 'CAMPS',
+    subtitle: 'Child Health Care For Slums',
+    buttonText: 'View Our Gallery',
+    buttonLink: '/events#e-7'
+  }
+];
+
+const events = [
+  {
+    title: "Clean India Mission",
+    image: CleaninessBrightImg,
+    description: "We went above and beyond to fully support the Swachh Bharat Abhiyan introduced by Prime Minister Modi.",
+    date: "Organised on 23 Feb 2017",
+    link: "/events"
+  },
+  {
+    title: "Mahila Aarogya Samiti",
+    image: homepageImages['../assets/homepage/mas-main.jpg'],
+    description: "A group of local women who focus on helping other women in their respective local areas to raise issues faced in the under-privileged sections of the society.",
+    date: "An ongoing campaign",
+    link: "/events#e-3"
+  },
+  {
+    title: "World AIDS Day",
+    image: KidsBooksImg,
+    description: "We organised this event to provide books and food to the children living in the slums near Birla Ghat (Haridwar) while spreading awareness about AIDS with the locals.",
+    date: "Carried out on 1 December 2013",
+    link: "/events#e-4"
+  }
+];
+---
+
+<BaseLayout title="Friends NGO - empowering rural communities">
+
+  <div class="sm:mt-12">
+    <Carousel slides={slides} interval={6000} />
+  </div>
+
+
+  <section class="mx-auto px-4 pt-24 lg:py-24">
+    <div class="max-w-7xl mx-auto mb-12">
+      <h2 class="text-5xl md:text-5xl font-bold text-center text-gray-900 mb-2 tracking-tight">
+        Latest Events
+      </h2>
+      <div class="w-24 h-1 bg-gradient-to-r from-red-500 to-yellow-500 mx-auto rounded-full"></div>
+    </div>
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-6 max-w-7xl mx-auto">
+      {events.map((event) => (
+        <div class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 flex flex-col">
+          <div class="relative overflow-hidden aspect-[4/3]">
+            <Image 
+              src={event.image} 
+              alt={event.title}
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          </div>
+          
+          <div class="flex-1 flex flex-col p-6 lg:p-8">
+            <h4 class="text-2xl font-semibold text-center mb-4 text-gray-800 leading-tight">
+              {event.title}
+            </h4>
+            
+            <hr class="border-amber-500 w-16 mx-auto mb-4" />
+            
+            <p class="text-gray-600 text-center mb-4 flex-1 leading-relaxed">
+              {event.description}
+            </p>
+            
+            <p class="text-sm text-gray-500 text-center mb-6 italic">
+              {event.date}
+            </p>
+            
+            <div class="text-center mt-auto">
+              <a 
+                href={event.link}
+                class="inline-block bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-semibold tracking-wider uppercase text-sm py-3 px-8 rounded-lg transition-all duration-300 shadow-md hover:shadow-xl transform hover:scale-105"
+              >
+                Show More
+              </a>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+
+  <section class="relative min-h-screen pt-24 pb-16 px-4">
+    <!-- Header -->
+    <div class="max-w-7xl mx-auto mb-12">
+      <h2 class="text-5xl md:text-5xl font-bold text-center text-gray-900 mb-2 tracking-tight">
+        Current Campaign
+      </h2>
+      <div class="w-24 h-1 bg-gradient-to-r from-red-500 to-yellow-500 mx-auto rounded-full"></div>
+    </div>
+
+    <!-- Campaign Content -->
+    <div class="max-w-7xl mx-auto relative">
+      <div class="hidden xl:block relative">
+        <Image 
+          src={homepageImages['../assets/homepage/indradhanush.jpg']} 
+          alt="Intensified Mission Indradhanush" 
+          class="w-full rounded-3xl shadow-2xl object-cover h-[600px]"
+        />
+        
+        <div class="absolute top-8 left-8 w-[400px] bg-gradient-to-br from-orange-400/95 to-yellow-400/95 backdrop-blur-sm p-8 rounded-2xl shadow-2xl transform hover:scale-105 transition-transform duration-300 opacity-90">
+          <h4 class="text-2xl font-bold text-black/90 mb-4 tracking-wide">
+            Intensified Mission Indradhanush
+          </h4>
+          <div class="w-16 h-1 bg-white/60 mb-6 rounded-full"></div>
+          <p class="text-black/95 leading-relaxed text-sm mb-6 font-medium">
+            In 2014, The Ministry of Health And Family Welfare in India launched this program to fully immunize children of age up to two years and pregnant women with all available vaccines. To help promote and implement this extremely beneficial program, Friends has been organising various vaccination camps in Roorkee.
+          </p>
+          <a 
+            href="/events#e-2" 
+            class="inline-block bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-semibold tracking-wider uppercase text-sm py-3 px-8 rounded-lg transition-all duration-300 shadow-md hover:shadow-xl transform hover:scale-105"
+          >
+            See Our Gallery
+          </a>
+        </div>
+      </div>
+
+      <!-- Mobile/Tablet Layout -->
+      <div class="xl:hidden bg-white rounded-3xl shadow-2xl overflow-hidden">
+        <div class="bg-gradient-to-br from-orange-400/95 to-yellow-400/95 p-8 md:p-10">
+          <h4 class="text-2xl md:text-3xl font-bold text-black mb-4 tracking-wide">
+            Intensified Mission Indradhanush
+          </h4>
+          <div class="w-16 h-1 bg-white/60 mb-6 rounded-full"></div>
+          <p class="text-white/95 leading-relaxed mb-8 font-medium">
+            In 2014, The Ministry of Health And Family Welfare in India launched this program to fully immunize children of age up to two years and pregnant women with all available vaccines. To help promote and implement this extremely beneficial program, Friends has been organising various vaccination camps in Roorkee.
+          </p>
+          <a 
+            href="/events#e-2" 
+            class="inline-block bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-semibold tracking-wider uppercase text-sm py-3 px-8 rounded-full transition-all duration-300 shadow-md hover:shadow-xl transform hover:scale-105"
+          >
+            See Our Gallery
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="relative min-h-screen pt-24 pb-24 px-4 mb-24">
+    <div class="max-w-7xl mx-auto mb-12">
+      <h2 class="text-4xl md:text-5xl font-bold text-center text-gray-900 mb-2 tracking-tight">
+        Our Achievements
+      </h2>
+      <div class="w-24 h-1 bg-gradient-to-r from-red-500 to-yellow-500 mx-auto rounded-full"></div>
+    </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <!-- Card 1 -->
+        <div class="group relative overflow-hidden rounded-2xl shadow-2xl hover:shadow-orange-500/50 transition-all duration-500 hover:-translate-y-2">
+          <div class="absolute inset-0 bg-gradient-to-br from-orange-600 to-yellow-600 opacity-0 group-hover:opacity-10 transition-opacity duration-500"></div>
+          <Image
+            src={homepageImages['../assets/homepage/achievements-1.jpg']}
+            alt="Healthy Children & Families Program"
+            class="w-full h-64 object-cover"
+          />
+          <div class="bg-gradient-to-br from-red-800 to-red-400 p-8">
+            <h5 class="text-2xl font-bold text-white text-center mb-4">
+              Healthy Children & Families
+            </h5>
+            <div class="h-1 w-20 bg-white/30 mx-auto mb-6"></div>
+            <p class="text-white/95 leading-relaxed">
+              Implemented Urban Reproductive & Child Health Program (RCH) under Uttarakhand Health and Family Welfare Society. Funded by National Health Mission (NHM) this project helps the urban poor slum population with reproductive and child health, child immunisation, family welfare and planning, OPD, basic lab testings and free dispensing of medicines.
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="group relative overflow-hidden rounded-2xl shadow-2xl hover:shadow-yellow-500/50 transition-all duration-500 hover:-translate-y-2">
+          <div class="absolute inset-0 bg-gradient-to-br from-yellow-600 to-orange-600 opacity-0 group-hover:opacity-10 transition-opacity duration-500"></div>
+          <Image
+            src={homepageImages['../assets/homepage/addicts.jpg']}
+            alt="AIDS Prevention & Control Program"
+            class="w-full h-64 object-cover"
+          />
+          <div class="bg-gradient-to-br from-amber-400 to-orange-600 p-8">
+            <h5 class="text-2xl font-bold text-white text-center mb-4">
+              AIDS Prevention & Control
+            </h5>
+            <div class="h-1 w-20 bg-white/30 mx-auto mb-6"></div>
+            <p class="text-white/95 leading-relaxed">
+              Implemented targeted intervention programs under the Uttarakhand State AIDS Control Society (USACS) funded by NACO on the core components like Female Sex Workers (FSW's), Injected Drug Users (IDU's), street children, truck drivers for more than 10 years. As a result, we prevented and contained AIDS transmission in the high risk groups in areas of Haridwar city.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

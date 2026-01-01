@@ -1,0 +1,116 @@
+---
+import { Image } from 'astro:assets';
+
+interface Slide {
+  image: string;
+  title: string;
+  subtitle: string;
+  buttonText: string;
+  buttonLink: string;
+}
+
+interface Props {
+  slides: Slide[];
+  interval?: number; // in milliseconds
+}
+
+const { slides, interval = 6000 } = Astro.props;
+---
+
+<div class="relative w-full h-screen">
+  <div class="mt-20 block h-full carousel-container">
+    <div class="carousel-wrapper h-full relative overflow-hidden">
+      {slides.map((slide, index) => (
+        <div
+          class={`carousel-slide absolute inset-0 transition-opacity duration-1000 ${index === 0 ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+          data-slide={index}
+        >
+          <Image
+            src={slide.image} 
+            alt={slide.title}
+            class="w-full h-full object-cover opacity-80"
+          />
+          <div class="absolute inset-0 bg-blue-900/40"></div>
+          <div class="absolute inset-0 flex flex-col justify-center items-center text-center px-4">
+            <h1 class="text-white text-6xl lg:text-7xl font-bold tracking-wider mb-4">{slide.title}</h1>
+            <p class="text-white text-xl lg:text-2xl font-semibold mb-8 tracking-wide">{slide.subtitle}</p>
+            <a href={slide.buttonLink}
+              class="inline-block bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-bold tracking-wider uppercase py-4 px-12 rounded-lg transition-all duration-300 shadow-md hover:shadow-xl transform hover:scale-105"
+            >
+              {slide.buttonText}
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Indicators -->
+    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex gap-3 z-10">
+      {slides.map((_, index) => (
+        <button 
+          class={`carousel-indicator h-2.5 transition-all ${index === 0 ? 'w-8 bg-white' : 'w-2.5 bg-gray-700'}`}
+          data-slide-to={index}
+          aria-label={`Go to slide ${index + 1}`}>
+        </button>
+      ))}
+    </div>
+  </div>
+</div>
+
+<script define:vars={{ interval }}>
+  let currentSlide = 0;
+  const slides = document.querySelectorAll('.carousel-slide');
+  const indicators = document.querySelectorAll('.carousel-indicator');
+  const totalSlides = slides.length;
+
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.classList.toggle('opacity-100', i === index);
+      slide.classList.toggle('opacity-0', i !== index);
+      slide.classList.toggle('pointer-events-none', i !== index);
+    });
+    
+    indicators.forEach((indicator, i) => {
+      if (i === index) {
+        indicator.classList.remove('w-2.5', 'bg-gray-700');
+        indicator.classList.add('w-8', 'bg-white');
+      } else {
+        indicator.classList.remove('w-8', 'bg-white');
+        indicator.classList.add('w-2.5', 'bg-gray-700');
+      }
+    });
+  }
+
+  function nextSlide() {
+    currentSlide = (currentSlide + 1) % totalSlides;
+    showSlide(currentSlide);
+  }
+
+  // Auto advance
+  let autoPlay = setInterval(nextSlide, interval);
+
+  // Indicator clicks
+  indicators.forEach((indicator, index) => {
+    indicator.addEventListener('click', () => {
+      currentSlide = index;
+      showSlide(currentSlide);
+      clearInterval(autoPlay);
+      autoPlay = setInterval(nextSlide, interval);
+    });
+  });
+
+  // Pause on hover
+  const carouselContainer = document.querySelector('.carousel-container');
+  if (carouselContainer) {
+    carouselContainer.addEventListener('mouseenter', () => clearInterval(autoPlay));
+    carouselContainer.addEventListener('mouseleave', () => {
+      autoPlay = setInterval(nextSlide, interval);
+    });
+  }
+</script>
+
+<style>
+  .carousel-slide {
+    z-index: 1;
+  }
+</style>

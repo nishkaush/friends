@@ -1,0 +1,84 @@
+---
+const today = new Date();
+---
+
+<footer class="bg-black text-white pt-20 mt-24">
+  <div class="container mx-auto px-6 py-16">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+      
+      <!-- Resources -->
+      <div class="space-y-4">
+        <h3 class="text-xl font-semibold mb-6 relative inline-block">
+          Resources
+          <span class="absolute bottom-0 left-0 w-16 h-0.5 bg-gradient-to-r from-orange-400 to-transparent"></span>
+        </h3>
+        <div class="space-y-3 text-gray-300">
+          <a href="http://www.who.int/countries/ind/en/" target="_blank" 
+             class="block hover:text-orange-400 transition-colors duration-300 hover:translate-x-1 transform">
+            WHO
+          </a>
+          <a href="http://www.ukhfws.org/index.php" target="_blank" 
+             class="block hover:text-orange-400 transition-colors duration-300 hover:translate-x-1 transform">
+            UKHFWS
+          </a>
+          <a href="http://naco.gov.in/" target="_blank" 
+             class="block hover:text-orange-400 transition-colors duration-300 hover:translate-x-1 transform">
+            NACO
+          </a>
+        </div>
+      </div>
+
+      <!-- Miscellaneous -->
+      <div class="space-y-4">
+        <h3 class="text-xl font-semibold mb-6 relative inline-block">
+          Miscellaneous
+          <span class="absolute bottom-0 left-0 w-16 h-0.5 bg-gradient-to-r from-orange-400 to-transparent"></span>
+        </h3>
+        <div class="space-y-3 text-gray-300">
+          <a href="http://nhm.gov.in" target="_blank" 
+             class="block hover:text-orange-400 transition-colors duration-300 hover:translate-x-1 transform">
+            National Health Mission
+          </a>
+          <a href="https://www.nhp.gov.in/" target="_blank" 
+             class="block hover:text-orange-400 transition-colors duration-300 hover:translate-x-1 transform">
+            National Health Portal
+          </a>
+        </div>
+      </div>
+
+      <!-- About -->
+      <div class="space-y-4">
+        <h3 class="text-xl font-semibold mb-6 relative inline-block">
+          About
+          <span class="absolute bottom-0 left-0 w-16 h-0.5 bg-gradient-to-r from-orange-400 to-transparent"></span>
+        </h3>
+        <div class="space-y-3 text-gray-300">
+          <a href="/contact#our-centers" 
+             class="block hover:text-orange-400 transition-colors duration-300 hover:translate-x-1 transform">
+            Our Locations
+          </a>
+          <a href="/projects" 
+             class="block hover:text-orange-400 transition-colors duration-300 hover:translate-x-1 transform">
+            Galleries
+          </a>
+          <a href="/reports" 
+             class="block hover:text-orange-400 transition-colors duration-300 hover:translate-x-1 transform">
+            Annual Reports
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Section -->
+    <div class="border-t border-gray-800 pt-8 text-center text-gray-400 text-sm space-y-2">
+      <p>&copy; {today.getFullYear()} | Friends NGO | All Rights Reserved</p>
+      <p>
+        Made By 
+        <a href="http://www.nishant-kaushish.com" 
+           class="text-orange-400 hover:text-orange-300 transition-colors duration-300">
+          Nishant Kaushish
+        </a>
+      </p>
+    </div>
+  </div>
+</footer>

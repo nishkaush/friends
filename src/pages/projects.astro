@@ -1,0 +1,290 @@
+---
+import BaseLayout from '../layouts/Base.astro';
+import { projects, SITE_TITLE } from '../consts';
+
+
+const allProjectImages = import.meta.glob(
+  `../assets/*/*.{jpg,png}`,
+  { eager: true }
+)
+---
+
+
+<BaseLayout title={ 'Projects - ' + SITE_TITLE }>
+
+  <section class="py-20 px-4 mt-24">
+    <div class="max-w-7xl mx-auto">
+      <div class="max-w-7xl mx-auto pb-20 text-center">
+        <h1 class="text-5xl md:text-5xl font-bold text-center text-gray-900 mb-2 tracking-tight">
+          Featured Projects
+        </h1>
+        <div class="w-24 h-1 bg-gradient-to-r from-red-500 to-yellow-500 mx-auto rounded-full"></div>
+        <p class="text-gray-400 text-lg max-w-2xl mx-auto mt-6">
+          View our contributions through our amazing projects
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {projects.map((project) => (
+          <div class="group cursor-pointer" data-project-id={project.id}>
+            <div class="relative overflow-hidden rounded-2xl aspect-[4/3] mb-4 shadow-lg hover:shadow-2xl transition-all duration-300">
+            {/* <div>
+              {JSON.stringify(allProjectImages)}
+            </div> */}
+              <img
+                src={
+                  project.folderName
+                    ? allProjectImages[`../assets/${project.folderName}/${project.thumbnail}`].default.src
+                    : project.thumbnail
+                }
+                alt={project.title}
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div class="absolute bottom-4 left-4 right-4 flex items-center justify-between">
+                  <span class="text-white font-medium text-lg">View Gallery</span>
+                  <span class="bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full text-white text-sm">
+                    {project.images.length} photos
+                  </span>
+                </div>
+              </div>
+              <div class="absolute inset-0 ring-2 ring-transparent group-hover:ring-orange-500 rounded-2xl transition-all duration-300"></div>
+            </div>
+            
+            <div class="px-2">
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="text-2xl font-bold text-gray-900">{project.title}</h3>
+              </div>
+              <p class="text-gray-600">{project.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Gallery Modal -->
+    <div id="gallery-modal" class="fixed inset-0 bg-white z-50 hidden overflow-y-auto">
+      <div class="min-h-screen">
+        <div class="sticky top-0 bg-white border-b border-gray-200 z-10 shadow-sm">
+          <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+            <div>
+              <h3 id="modal-title" class="text-2xl font-bold text-gray-900"></h3>
+              <p id="modal-count" class="text-gray-500 text-sm mt-1"></p>
+            </div>
+            <button id="close-modal" class="text-gray-500 hover:text-orange-500 transition-colors p-2">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Gallery Grid -->
+        <div class="max-w-7xl mx-auto px-6 py-8">
+          <div id="gallery-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Carousel Modal -->
+    <div id="carousel-modal" class="fixed inset-0 bg-black/95 z-[60] hidden items-center justify-center">
+      <button id="close-carousel" class="absolute top-6 right-6 text-white hover:text-orange-500 transition-colors z-10">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+
+      <button id="prev-btn" class="absolute left-6 text-white hover:text-orange-500 transition-colors z-10 p-3 rounded-full bg-white/10 hover:bg-white/20">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+        </svg>
+      </button>
+
+      <button id="next-btn" class="absolute right-6 text-white hover:text-orange-500 transition-colors z-10 p-3 rounded-full bg-white/10 hover:bg-white/20">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+        </svg>
+      </button>
+
+      <div class="relative max-w-6xl w-full mx-auto px-20">
+        <img id="carousel-image" src="" alt="" class="w-full h-auto rounded-2xl shadow-2xl"/>
+        <div class="text-center mt-6">
+          <p id="carousel-counter" class="text-gray-300 text-lg"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script define:vars={{ projects, allProjectImages }}>
+
+    let currentProject = null;
+    let currentIndex = 0;
+
+    const galleryModal = document.getElementById('gallery-modal');
+    const carouselModal = document.getElementById('carousel-modal');
+    const modalTitle = document.getElementById('modal-title');
+    const modalCount = document.getElementById('modal-count');
+    const galleryGrid = document.getElementById('gallery-grid');
+    const carouselImage = document.getElementById('carousel-image');
+    const carouselCounter = document.getElementById('carousel-counter');
+
+    // Open gallery view
+    document.querySelectorAll('[data-project-id]').forEach(card => {
+      card.addEventListener('click', () => {
+        const projectId = parseInt(card.dataset.projectId);
+        openGallery(projectId);
+      });
+    });
+
+
+  function openGallery(projectId) {
+    currentProject = projects.find(p => p.id === projectId);
+    modalTitle.textContent = currentProject.title;
+    modalCount.textContent = `${currentProject.images.length} photos`;
+    
+    galleryGrid.innerHTML = '';
+    currentProject.images.forEach((img, idx) => {
+      const div = document.createElement('div');
+      div.className = 'gallery-thumb group cursor-pointer relative overflow-hidden rounded-xl aspect-[4/3] shadow-md hover:shadow-xl transition-all duration-300';
+      div.style.animationDelay = `${idx * 50}ms`;
+      div.innerHTML = `
+        <img src="${allProjectImages[`../assets/${currentProject.folderName}/${img.name}`].default.src}" alt="${img.alt}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"/>
+        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
+          <svg class="w-12 h-12 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/>
+          </svg>
+        </div>
+      `;
+      div.addEventListener('click', () => openCarousel(idx));
+      galleryGrid.appendChild(div);
+    });
+    if(!currentProject.images.length) {
+      const div = document.createElement('div');
+      div.innerHTML = `<p>Gallery coming soon!</p>`;
+      div.addEventListener('click', () => openCarousel(idx));
+      galleryGrid.appendChild(div);
+    }
+    
+    galleryModal.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+    
+    // Trigger stagger animation
+    setTimeout(() => {
+      document.querySelectorAll('.gallery-thumb').forEach(thumb => {
+        thumb.classList.add('fade-in');
+      });
+    }, 10);
+  }
+
+    function closeGallery() {
+      galleryModal.classList.add('hidden');
+      document.body.style.overflow = 'auto';
+    }
+
+    function openCarousel(imageIndex) {
+      currentIndex = imageIndex;
+      updateCarousel();
+      carouselModal.classList.remove('hidden');
+      carouselModal.classList.add('flex');
+    }
+
+    function closeCarousel() {
+      carouselModal.classList.add('hidden');
+      carouselModal.classList.remove('flex');
+    }
+
+    function updateCarousel() {
+      if (!currentProject) return;
+      carouselImage.src = allProjectImages[
+        `../assets/${currentProject.folderName}/${currentProject.images[currentIndex]['name']}`
+      ].default.src;
+      carouselCounter.textContent = `${currentIndex + 1} / ${currentProject.images.length}`;
+    }
+
+    function nextImage() {
+      if (!currentProject) return;
+      currentIndex = (currentIndex + 1) % currentProject.images.length;
+      updateCarousel();
+    }
+
+    function prevImage() {
+      if (!currentProject) return;
+      currentIndex = (currentIndex - 1 + currentProject.images.length) % currentProject.images.length;
+      updateCarousel();
+    }
+
+    document.getElementById('close-modal')?.addEventListener('click', closeGallery);
+    document.getElementById('close-carousel')?.addEventListener('click', closeCarousel);
+    document.getElementById('prev-btn')?.addEventListener('click', prevImage);
+    document.getElementById('next-btn')?.addEventListener('click', nextImage);
+
+    carouselModal?.addEventListener('click', (e) => {
+      if (e.target === carouselModal) closeCarousel();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (carouselModal.classList.contains('flex')) {
+        if (e.key === 'Escape') closeCarousel();
+        if (e.key === 'ArrowLeft') prevImage();
+        if (e.key === 'ArrowRight') nextImage();
+      } else if (!galleryModal.classList.contains('hidden')) {
+        if (e.key === 'Escape') closeGallery();
+      }
+    });
+  </script>
+
+  <style>
+    body.modal-open {
+      overflow: hidden;
+    }
+
+    #gallery-modal {
+      animation: fadeIn 0.3s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    .gallery-thumb {
+      opacity: 0;
+    }
+
+    .gallery-thumb.fade-in {
+      animation: slideUp 0.5s ease-out forwards;
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    #gallery-modal .max-w-7xl {
+      animation: slideDown 0.4s ease-out;
+    }
+
+    @keyframes slideDown {
+      from {
+        transform: translateY(-20px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+  </style>
+
+</BaseLayout>
