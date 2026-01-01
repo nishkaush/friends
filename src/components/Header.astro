@@ -23,15 +23,17 @@ const isActive = (href: string) => {
 ---
 
 <nav class="fixed top-0 w-full bg-black/80 backdrop-blur-md z-50 border-b border-zinc-800">
-  <div class="max-w-7xl mx-auto px-1 py-4 flex flex-col sm:flex-row justify-between items-center gap-4">
+  <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
     <a
       href="/"
       aria-label="home"
-      class="text-4xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent"
+      class="text-4xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent z-50"
     >
       <Image src={Logo} alt="Home" width={100} />
     </a>
-    <div class="flex flex-wrap justify-center gap-4 sm:gap-5 text-sm items-center">
+    
+    <!-- Desktop Navigation -->
+    <div class="hidden md:flex gap-5 text-sm items-center">
       {links.map(link => (
         <a 
           href={link.href}
@@ -44,5 +46,86 @@ const isActive = (href: string) => {
         </a>
       ))}
     </div>
+
+    <!-- Hamburger Button -->
+    <button 
+      id="hamburger"
+      class="md:hidden text-white z-[60] p-2"
+      aria-label="Toggle menu"
+    >
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+    </button>
   </div>
 </nav>
+
+<!-- Overlay - Full screen, appears on menu open -->
+<div 
+  id="overlay"
+  class="fixed inset-0 bg-black/70 opacity-0 pointer-events-none transition-opacity duration-300 z-[55]"
+></div>
+
+<!-- Mobile Sidebar -->
+<div 
+  id="sidebar"
+  class="fixed top-0 right-0 h-full w-64 bg-black border-r border-zinc-800 transform translate-x-full transition-transform duration-300 ease-in-out z-[56]"
+>
+
+  <div class="flex flex-col gap-2 pt-10 px-6">
+    {links.map(link => (
+      <a 
+        href={link.href}
+        class:list={[
+          "hover:text-orange-400 transition-colors px-4 py-3 uppercase rounded text-sm sidebar-link",
+          isActive(link.href) ? "text-orange-400 font-bold" : "text-white"
+        ]}
+      >
+        {link.label}
+      </a>
+    ))}
+  </div>
+</div>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const sidebar = document.getElementById('sidebar');
+  const overlay = document.getElementById('overlay');
+  const sidebarLinks = document.querySelectorAll('.sidebar-link');
+
+  function openMenu() {
+    sidebar?.classList.remove('translate-x-full');
+    overlay?.classList.remove('opacity-0', 'pointer-events-none');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMenu() {
+    sidebar?.classList.add('translate-x-full');
+    overlay?.classList.add('opacity-0', 'pointer-events-none');
+    document.body.style.overflow = '';
+  }
+
+  hamburger?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    if (sidebar?.classList.contains('translate-x-full')) {
+      openMenu();
+    } else {
+      closeMenu();
+    }
+  });
+
+  // Click on overlay closes menu
+  overlay?.addEventListener('click', closeMenu);
+  
+  // Click on links closes menu
+  sidebarLinks.forEach(link => {
+    link.addEventListener('click', closeMenu);
+  });
+
+  // Close on escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeMenu();
+    }
+  });
+</script>
